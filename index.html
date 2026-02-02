@@ -3,184 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Falcon FX | SNR & Market Structure Elite</title>
+    <title>Falcon FX | Institutional Authority</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
     <style>
-        :root { --accent: #ffffff; }
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
             background-color: #000; 
             color: white; 
-            /* Your Specific Fixed Background */
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85)), url('https://i.ibb.co.com/s9BC1xZW/d71aadf352b9c3ea85ac3dec0f170fd7.jpg');
-            background-size: cover;
-            background-position: center top;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
+            overflow-x: hidden;
+            cursor: crosshair;
         }
 
-        .glass-nav { background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
-        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.4s ease; }
-        .glass-card:hover { background: rgba(255, 255, 255, 0.07); border-color: rgba(255, 255, 255, 0.2); transform: translateY(-5px); }
-        
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #000; }
-        ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #555; }
+        /* Fixed Master Background */
+        .parallax-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://i.ibb.co.com/s9BC1xZW/d71aadf352b9c3ea85ac3dec0f170fd7.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
 
-        .text-gradient { background: linear-gradient(to bottom, #fff 0%, #666 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        /* High-End Neon UI UX Colors */
+        .neon-green-text { color: #00ff88 !important; text-shadow: 0 0 20px rgba(0, 255, 136, 0.6); }
+        .neon-red-text { color: #ff3344 !important; text-shadow: 0 0 25px rgba(255, 51, 68, 0.7); }
+        
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.01); 
+            backdrop-filter: blur(25px); 
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card:hover { 
+            background: rgba(255, 255, 255, 0.05); 
+            border-color: rgba(0, 255, 136, 0.3);
+            transform: translateY(-10px);
+        }
+        
+        .hero-text { font-size: clamp(3rem, 12vw, 9rem); line-height: 0.85; font-weight: 800; letter-spacing: -0.05em; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-thumb { background: #00ff88; border-radius: 10px; }
+
+        #mouse-light {
+            position: fixed; width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(0,255,136,0.04) 0%, transparent 70%);
+            border-radius: 50%; pointer-events: none; z-index: 1; transform: translate(-50%, -50%);
+        }
+
+        /* Removing Italics Globally */
+        * { font-style: normal !important; }
+        .bright-white { color: #ffffff !important; opacity: 1 !important; }
+
+        /* Maximum Bold for Authority text */
+        .authority-bold { font-weight: 900 !important; letter-spacing: 0.4em !important; }
+        .nav-bold { font-weight: 800 !important; color: #ffffff !important; }
     </style>
 </head>
-<body class="overflow-x-hidden">
+<body>
 
-    <nav class="fixed top-0 w-full z-50 glass-nav py-5 transition-all duration-500" id="navbar">
-        <div class="max-w-7xl mx-auto px-8 flex justify-between items-center">
-            <div class="flex items-center gap-4">
-                <div class="bg-white p-1 rounded-lg shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-                    <img src="https://i.ibb.co/LD3KNG97/5800d8e33c0a010006bb457cdfd8f73c.jpg" alt="Logo" class="h-10 w-10 object-cover rounded-md">
-                </div>
-                <div class="flex flex-col">
-                    <span class="text-xl font-extrabold tracking-tighter leading-none uppercase">Falcon FX</span>
-                    <span class="text-[9px] text-gray-500 tracking-[0.4em] uppercase mt-1 font-bold">SNR & Structure Elite</span>
-                </div>
-            </div>
-            
-            <div class="hidden lg:flex gap-12 text-[10px] font-bold uppercase tracking-[0.25em] text-gray-500">
-                <a href="#home" class="hover:text-white transition">Intro</a>
-                <a href="#about" class="hover:text-white transition">Strategy</a>
-                <a href="#setups" class="hover:text-white transition">Executions</a>
-                <a href="#youtube" class="hover:text-white transition">YouTube</a>
-                <a href="#community" class="hover:text-white transition">Contact</a>
-            </div>
+    <div id="mouse-light"></div>
+    <div class="parallax-bg"></div>
 
-            <a href="https://t.me/falconfxofficialcommunity" class="bg-white text-black px-8 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 active:scale-95 transition-all">Free Access</a>
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 w-[92%] z-50 bg-black/50 backdrop-blur-3xl border border-white/5 py-5 px-10 rounded-2xl flex justify-between items-center">
+        <div class="flex items-center gap-4">
+            <div class="w-10 h-10 bg-white rounded flex items-center justify-center p-1 shadow-xl">
+                <img src="https://i.ibb.co.com/LD3KNG97/5800d8e33c0a010006bb457cdfd8f73c.jpg" class="w-full h-full object-cover rounded">
+            </div>
+            <div class="flex flex-col">
+                <span class="text-xl font-extrabold uppercase tracking-tighter neon-green-text">Falcon FX</span>
+                <span class="text-[8px] neon-red-text uppercase authority-bold">Institutional Authority</span>
+            </div>
         </div>
+        
+        <div class="hidden lg:flex gap-12 text-[10px] uppercase tracking-[0.3em]">
+            <a href="#home" class="nav-bold hover:neon-green-text transition">Intro</a>
+            <a href="#about" class="nav-bold hover:neon-green-text transition">Philosophy</a>
+            <a href="#setups" class="nav-bold hover:neon-green-text transition text-white">Archives</a>
+            <a href="#community" class="nav-bold hover:neon-green-text transition">Network</a>
+        </div>
+        <a href="https://t.me/falconfxofficialcommunity" class="bg-white text-black px-8 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest hover:scale-105 transition">Free Access</a>
     </nav>
 
-    <section id="home" class="min-h-screen flex items-center justify-start px-10 md:px-24">
-        <div class="max-w-4xl mt-20 reveal">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card text-[10px] font-bold tracking-[0.3em] text-white uppercase mb-8 border border-white/10">
-                <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span> Institutional Framework
-            </div>
-            <h1 class="text-7xl md:text-[110px] font-extrabold tracking-tighter leading-[0.85] mb-10 text-gradient">
-                TRADING <br> REDEFINED.
+    <section id="home" class="min-h-screen flex flex-col justify-center items-center px-6">
+        <div class="reveal text-center">
+            <h1 class="hero-text mb-12 uppercase">
+                <span class="neon-red-text">TRADING</span> <br> <span class="neon-green-text">REDEFINED.</span>
             </h1>
-            <p class="text-gray-400 text-lg md:text-2xl max-w-2xl mb-14 font-light leading-relaxed">
-                "No indicators. No noise. Just surgical precision through market structure and SNR foundation."
+            <p class="bright-white text-lg md:text-2xl max-w-2xl mx-auto mb-16 font-light leading-relaxed">
+                "SNR remains the foundation. Market structure is the map. Precision is the only objective."
             </p>
-            <div class="flex flex-wrap gap-6">
-                <a href="#setups" class="bg-white text-black px-12 py-5 rounded-2xl font-black uppercase tracking-widest text-[11px] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-all">Explore Archive</a>
-                <a href="https://www.youtube.com/@falconfx-ffx" class="glass-card px-12 py-5 rounded-2xl font-black uppercase tracking-widest text-[11px] hover:bg-white/10 transition-all">Market Analysis</a>
+            <div class="flex gap-10 justify-center">
+                <button onclick="document.getElementById('setups').scrollIntoView()" class="bg-white text-black px-14 py-6 rounded-2xl font-black uppercase tracking-widest text-[11px] hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all">Execution Logs</button>
+                <a href="https://t.me/falconfxofficialcommunity" class="glass-card px-14 py-6 rounded-2xl font-black uppercase tracking-widest text-[11px] border border-white/10 hover:border-red-500 transition-all">Pulse Access</a>
             </div>
         </div>
     </section>
 
-    <section id="about" class="py-40 px-10 glass-nav border-y border-white/5">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-3 gap-10">
-                <div class="reveal p-12 rounded-[40px] glass-card">
-                    <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-8">
-                        <i class="fas fa-layer-group text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-6 uppercase tracking-tight">Foundation</h3>
-                    <p class="text-gray-500 leading-relaxed font-light">Price action is the beginning and the end. Support & Resistance (SNR) remains the absolute foundation of our trade selection model.</p>
+    <section id="about" class="py-40 px-6">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+            <div class="reveal">
+                <h2 class="text-5xl font-extrabold mb-10 tracking-tighter uppercase leading-none">Our Core Focus: <br><span class="neon-green-text">SNR & Structure</span></h2>
+                <div class="space-y-6 bright-white text-lg leading-relaxed font-normal">
+                    <p>Everything starts and ends with price action. I use ICT and Smart Money Concepts (SMC) strictly as a supporting framework—not as the main system.</p>
+                    <p>These concepts help refine entries, understand liquidity behavior, and improve trade timing, but <span class="neon-green-text font-bold uppercase">SNR remains the foundation</span> of every trade.</p>
+                    <p>No indicator dependency. No overcomplicated models. Just clean levels, structure, and disciplined execution.</p>
                 </div>
-                <div class="reveal p-12 rounded-[40px] glass-card" style="transition-delay: 200ms">
-                    <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-8">
-                        <i class="fas fa-crosshairs text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-6 uppercase tracking-tight">Refinement</h3>
-                    <p class="text-gray-500 leading-relaxed font-light">We integrate ICT and SMC strictly as supporting frameworks to refine entries, pinpoint liquidity, and optimize timing.</p>
+            </div>
+            <div class="reveal grid grid-cols-1 gap-6">
+                <div class="glass-card p-10 rounded-3xl">
+                    <h4 class="text-xl font-bold mb-4 neon-green-text uppercase tracking-widest">The Objective</h4>
+                    <p class="text-sm bright-white font-normal">Identify high-probability zones, manage risk intelligently, and stay consistent in real market conditions.</p>
                 </div>
-                <div class="reveal p-12 rounded-[40px] glass-card" style="transition-delay: 400ms">
-                    <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-8">
-                        <i class="fas fa-bolt text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-6 uppercase tracking-tight">Execution</h3>
-                    <p class="text-gray-500 leading-relaxed font-light">Zero indicator dependency. We focus on clean levels, disciplined risk management, and high-probability structural zones.</p>
+                <div class="glass-card p-10 rounded-3xl">
+                    <h4 class="text-xl font-bold mb-4 neon-red-text uppercase tracking-widest">The Vision</h4>
+                    <p class="text-sm bright-white font-normal">Built for traders who want clarity over complexity and structure over noise.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="youtube" class="py-40 px-10">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8 reveal">
-                <div class="max-w-xl">
-                    <h2 class="text-5xl font-extrabold tracking-tighter uppercase mb-6">Market <br> Breakdowns</h2>
-                    <p class="text-gray-500 uppercase tracking-[0.2em] text-[11px] font-bold leading-loose">Education for the serious institutional trader. Weekly updates directly from the charts.</p>
-                </div>
-                <a href="https://www.youtube.com/@falconfx-ffx" class="bg-red-600 text-white px-10 py-4 rounded-full font-black uppercase tracking-widest text-[10px] hover:bg-red-700 transition shadow-xl shadow-red-600/20">Subscribe Channel</a>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-10 reveal">
-                <div class="glass-card p-5 rounded-[40px] shadow-2xl">
-                    <div class="aspect-video rounded-[30px] overflow-hidden">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed?listType=user_uploads&list=falconfx-ffx" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
-                <div class="flex flex-col justify-center p-10 glass-card rounded-[40px]">
-                    <h3 class="text-3xl font-black mb-8 uppercase tracking-tighter">Master the Masterclass</h3>
-                    <p class="text-gray-400 mb-10 text-lg font-light leading-relaxed">Join 1K+ students on YouTube. Learn the exact logic behind every MSNR execution and structural shift.</p>
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-4 text-sm font-bold text-gray-500"><i class="fas fa-check text-white"></i> Weekly Market Analysis</div>
-                        <div class="flex items-center gap-4 text-sm font-bold text-gray-500"><i class="fas fa-check text-white"></i> Real-time Execution Logic</div>
-                        <div class="flex items-center gap-4 text-sm font-bold text-gray-500"><i class="fas fa-check text-white"></i> ICT/SMC Breakdown</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="setups" class="py-40 px-10 bg-black/40">
-        <div class="max-w-7xl mx-auto">
+    <section id="setups" class="py-40 bg-black/60 border-y border-white/5 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-24 reveal">
-                <h2 class="text-6xl font-extrabold tracking-tighter uppercase mb-6 text-gradient">The Archive</h2>
-                <p class="text-gray-500 uppercase tracking-[0.3em] text-[10px] font-bold">37+ Institutional Grade Executions</p>
+                <h2 class="text-6xl font-black tracking-tighter uppercase mb-4">
+                    <span class="neon-red-text">Sniper</span> <span class="neon-green-text">Trade</span>
+                </h2>
+                <p class="neon-red-text uppercase tracking-[0.5em] text-[10px] font-black authority-bold">Institutional Grade Executions Integrated</p>
             </div>
-
             <div id="gallery" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 reveal">
                 </div>
-            
-            <div class="mt-24 text-center reveal">
-                <a href="https://t.me/falconfxofficialcommunity" class="glass-card px-12 py-5 rounded-2xl font-black uppercase tracking-widest text-[11px] inline-block border border-white/20">View Full Telegram Logs</a>
-            </div>
         </div>
     </section>
 
-    <footer id="community" class="py-40 px-10 text-center">
+    <footer id="community" class="py-40 text-center px-6">
         <div class="reveal">
-            <h2 class="text-6xl md:text-9xl font-black uppercase tracking-tighter mb-16 text-gradient">Join The <br>Vision</h2>
-            <div class="flex flex-wrap justify-center gap-12 text-4xl mb-32">
-                <a href="https://t.me/falconfxofficialcommunity" class="text-gray-500 hover:text-white transition hover:scale-125" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
-                <a href="https://www.youtube.com/@falconfx-ffx" class="text-gray-500 hover:text-white transition hover:scale-125" title="YouTube"><i class="fab fa-youtube"></i></a>
-                <a href="https://www.instagram.com/falconfx_ffx" class="text-gray-500 hover:text-white transition hover:scale-125" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.tiktok.com/@falconfx_ffx" class="text-gray-500 hover:text-white transition hover:scale-125" title="TikTok"><i class="fab fa-tiktok"></i></a>
-                <a href="https://www.facebook.com/falconfx.ffx" class="text-gray-500 hover:text-white transition hover:scale-125" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <h2 class="text-3xl font-bold mb-16 uppercase tracking-[0.5em] bright-white">Global Connectivity</h2>
+            <div class="flex flex-wrap justify-center gap-16 text-4xl mb-40">
+                <a href="https://t.me/falconfxofficialcommunity" class="neon-green-text hover:scale-125 transition-all"><i class="fab fa-telegram-plane"></i></a>
+                <a href="https://www.facebook.com/falconfx.ffx" class="text-white hover:neon-red-text hover:scale-125 transition-all"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/falconfx_ffx" class="neon-red-text hover:scale-125 transition-all"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@falconfx_ffx" class="text-gray-400 hover:text-white transition-all"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.youtube.com/@falconfx-ffx" class="text-red-600 hover:scale-125 transition-all"><i class="fab fa-youtube"></i></a>
             </div>
-            <div class="flex flex-col items-center gap-6">
-                <div class="bg-white p-1 rounded-lg w-10">
-                    <img src="https://i.ibb.co/LD3KNG97/5800d8e33c0a010006bb457cdfd8f73c.jpg" class="w-full h-full object-cover rounded-md">
-                </div>
-                <p class="text-[10px] font-extrabold uppercase tracking-[0.6em] text-gray-600">Precision over Noise &copy; 2026 Falcon FX</p>
+            <div class="bg-white p-1 rounded w-10 mx-auto mb-6 shadow-xl">
+                <img src="https://i.ibb.co.com/LD3KNG97/5800d8e33c0a010006bb457cdfd8f73c.jpg" class="w-full h-full object-cover rounded">
             </div>
+            <p class="text-[10px] uppercase tracking-[1em]"><span class="neon-green-text font-bold">Falcon FX</span> &copy; 2026 / <span class="neon-red-text authority-bold">Institutional Authority</span></p>
         </div>
     </footer>
 
     <script>
-        ScrollReveal().reveal('.reveal', { distance: '80px', duration: 1200, easing: 'ease-in-out', interval: 150 });
+        const mouseLight = document.getElementById('mouse-light');
+        document.addEventListener('mousemove', (e) => {
+            gsap.to(mouseLight, { x: e.clientX, y: e.clientY, duration: 1.2, ease: "power2.out" });
+        });
 
-        window.onscroll = () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 100) { nav.classList.add('py-3'); }
-            else { nav.classList.remove('py-3'); }
-        };
+        ScrollReveal().reveal('.reveal', { distance: '80px', duration: 1500, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', interval: 150 });
 
         const images = [
             "https://i.ibb.co.com/HL6tfkyw/alchemist-ict-ictconcepts-abayfx-fyp-WEBP-1.webp",
@@ -201,7 +187,7 @@
             "https://i.ibb.co.com/h1JSDppf/ict-ictconcepts-alchemist-candlerangetheory-trader-traderindonesia-2.jpg",
             "https://i.ibb.co.com/cSRjK0pQ/ict-ictconcepts-alchemist-candlerangetheory-trader-traderindonesia-3.jpg",
             "https://i.ibb.co.com/wZk5Td28/ict-ictconcepts-alchemist-candlerangetheory-trader-traderindonesia-4.jpg",
-            "https://i.ibb.co.com/P2hmsXn/ict-ictconcepts-alchemist-candlerangetheory-trader-traderindonesia.jpg",
+            "https://i.ibb.co.com/P2hmsXn/ict-ictconcepts-alchemist-candlerangetheory-trader-traderindonesia-1.jpg",
             "https://i.ibb.co.com/kV1Sndcg/pagi-yang-cerah-abayfx-JPEG.jpg",
             "https://i.ibb.co.com/B5DqT4rk/pagi-yang-cerah-abayfx-JPEG-1.jpg",
             "https://i.ibb.co.com/zh8m583N/pagi-yang-cerah-abayfx-JPEG-2.jpg",
@@ -225,8 +211,8 @@
         const gallery = document.getElementById('gallery');
         images.forEach(url => {
             gallery.innerHTML += `
-                <div class="glass-card p-3 rounded-[30px] overflow-hidden group">
-                    <img src="${url}" class="rounded-[22px] h-72 w-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                <div class="glass-card p-3 rounded-[40px] overflow-hidden group">
+                    <img src="${url}" class="rounded-[30px] h-72 w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000">
                 </div>
             `;
         });

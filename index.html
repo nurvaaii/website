@@ -6,8 +6,7 @@
     <title>Falcon FX | Institutional Authority</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.cdnfonts.com/css/avalon" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Reenie+Beanie&family=Plus+Jakarta+Sans:wght@200;400;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -21,13 +20,17 @@
             cursor: crosshair;
         }
 
-        /* Avalon Caps Font Application */
-        .avalon-font {
-            font-family: 'Avalon', sans-serif !important;
-            text-transform: uppercase;
+        /* Power Display Font */
+        .heading-font { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.1em; }
+        
+        /* Clear Handwriting Font for the Long Content */
+        .handwriting-font { 
+            font-family: 'Reenie Beanie', cursive; 
+            font-size: 1.6rem !important; 
+            line-height: 1.2; 
+            letter-spacing: 1px;
         }
 
-        /* Fixed Master Background */
         .parallax-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -37,7 +40,6 @@
             z-index: -1;
         }
 
-        /* Neon Colors */
         .neon-green-text { color: #00ff88 !important; text-shadow: 0 0 20px rgba(0, 255, 136, 0.6); }
         .neon-red-text { color: #ff3344 !important; text-shadow: 0 0 25px rgba(255, 51, 68, 0.7); }
         
@@ -53,7 +55,7 @@
             transform: translateY(-10px);
         }
         
-        .hero-text { font-size: clamp(1.8rem, 7vw, 5.5rem); line-height: 1.1; font-weight: 800; letter-spacing: 0.05em; }
+        .hero-text { font-size: clamp(2.5rem, 8vw, 6rem); line-height: 1; font-weight: 400; }
 
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-thumb { background: #00ff88; border-radius: 10px; }
@@ -66,12 +68,8 @@
 
         * { font-style: normal !important; }
         .bright-white { color: #ffffff !important; opacity: 1 !important; }
-
         .authority-bold { font-weight: 900 !important; letter-spacing: 0.4em !important; }
         .nav-bold { font-weight: 800 !important; color: #ffffff !important; }
-
-        .hero-social-link { transition: all 0.3s ease; }
-        .hero-social-link:hover { transform: translateY(-5px) scale(1.2); }
     </style>
 </head>
 <body>
@@ -86,7 +84,7 @@
             </div>
             <div class="flex flex-col">
                 <span class="text-xl font-extrabold uppercase tracking-tighter">
-                    <span class="neon-red-text">Falcon</span> <span class="neon-green-text">FX</span>
+                    <span class="neon-red-text heading-font">Falcon</span> <span class="neon-green-text heading-font">FX</span>
                 </span>
                 <span class="text-[8px] neon-red-text uppercase authority-bold">Institutional Authority</span>
             </div>
@@ -103,12 +101,12 @@
 
     <section id="home" class="min-h-screen flex flex-col justify-center items-center px-6 pt-32 md:pt-20">
         <div class="reveal text-center mt-24 md:mt-0">
-            <h1 class="hero-text mb-10 avalon-font">
+            <h1 class="hero-text mb-10 heading-font">
                 <span class="neon-red-text">SNR || LSR || QMM</span> <br> 
                 <span class="neon-green-text text-[0.6em] tracking-[0.2em]">WITH ICT SMC AND PA</span>
             </h1>
             
-            <div class="bright-white text-xs md:text-lg max-w-4xl mx-auto mb-10 font-bold leading-relaxed avalon-font tracking-wider">
+            <div class="bright-white handwriting-font max-w-4xl mx-auto mb-10 uppercase">
                 SNR DEFINES WHERE DECISIONS ARE MADE — NOT WHERE HOPE BEGINS.<br>
                 LSR EXPOSES LIQUIDITY — NOT RETAIL IMAGINATION.<br>
                 QMM REMAINS THE FOUNDATION, BECAUSE MANIPULATION IS NEVER RANDOM.<br>
@@ -122,16 +120,16 @@
             </div>
 
             <div class="flex justify-center gap-8 mb-14 text-2xl">
-                <a href="https://t.me/falconfxofficialcommunity" target="_blank" class="hero-social-link neon-green-text"><i class="fab fa-telegram-plane"></i></a>
-                <a href="https://www.facebook.com/falconfx.ffx" target="_blank" class="hero-social-link text-white hover:neon-red-text"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/falconfx_ffx" target="_blank" class="hero-social-link neon-red-text"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.tiktok.com/@falconfx_ffx" target="_blank" class="hero-social-link text-gray-400 hover:text-white"><i class="fab fa-tiktok"></i></a>
-                <a href="https://www.youtube.com/@falconfx-ffx" target="_blank" class="hero-social-link text-red-600 hover:scale-110"><i class="fab fa-youtube"></i></a>
+                <a href="https://t.me/falconfxofficialcommunity" target="_blank" class="hover:scale-125 transition neon-green-text"><i class="fab fa-telegram-plane"></i></a>
+                <a href="https://www.facebook.com/falconfx.ffx" target="_blank" class="hover:scale-125 transition text-white hover:neon-red-text"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/falconfx_ffx" target="_blank" class="hover:scale-125 transition neon-red-text"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@falconfx_ffx" target="_blank" class="hover:scale-125 transition text-gray-400 hover:text-white"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.youtube.com/@falconfx-ffx" target="_blank" class="hover:scale-125 transition text-red-600"><i class="fab fa-youtube"></i></a>
             </div>
 
             <div class="flex gap-10 justify-center">
-                <button onclick="document.getElementById('setups').scrollIntoView()" class="bg-white text-black px-14 py-6 rounded-2xl font-black uppercase tracking-widest text-[11px] hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all">Execution Logs</button>
-                <a href="https://t.me/falconfxofficialcommunity" class="glass-card px-14 py-6 rounded-2xl font-black uppercase tracking-widest text-[11px] border border-white/10 hover:border-red-500 transition-all">Pulse Access</a>
+                <button onclick="document.getElementById('setups').scrollIntoView()" class="bg-white text-black px-14 py-6 rounded-2xl font-black uppercase tracking-widest text-[11px] hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all heading-font">Execution Logs</button>
+                <a href="https://t.me/falconfxofficialcommunity" class="glass-card px-14 py-6 rounded-2xl font-black uppercase tracking-widest text-[11px] border border-white/10 hover:border-red-500 transition-all heading-font">Pulse Access</a>
             </div>
         </div>
     </section>
@@ -139,7 +137,7 @@
     <section id="about" class="py-40 px-6">
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
             <div class="reveal">
-                <h2 class="text-5xl font-extrabold mb-10 tracking-tighter uppercase leading-none">Our Core Focus: <br><span class="neon-green-text">SNR & Structure</span></h2>
+                <h2 class="text-5xl font-extrabold mb-10 tracking-tighter uppercase heading-font">Our Core Focus: <br><span class="neon-green-text">SNR & Structure</span></h2>
                 <div class="space-y-6 bright-white text-lg leading-relaxed font-normal">
                     <p>Everything starts and ends with price action. I use ICT and Smart Money Concepts (SMC) strictly as a supporting framework—not as the main system.</p>
                     <p>These concepts help refine entries, understand liquidity behavior, and improve trade timing, but <span class="neon-green-text font-bold uppercase">SNR remains the foundation</span> of every trade.</p>
@@ -147,34 +145,34 @@
                 </div>
             </div>
             <div class="reveal grid grid-cols-1 gap-6">
-                <div class="glass-card p-10 rounded-3xl">
-                    <h4 class="text-xl font-bold mb-4 neon-green-text uppercase tracking-widest">The Objective</h4>
-                    <p class="text-sm bright-white font-normal">Identify high-probability zones, manage risk intelligently, and stay consistent in real market conditions.</p>
+                <div class="glass-card p-10 rounded-3xl border-neon-green">
+                    <h4 class="text-xl font-bold mb-4 neon-green-text uppercase heading-font">The Objective</h4>
+                    <p class="text-sm bright-white font-normal handwriting-font">Identify high-probability zones, manage risk intelligently, and stay consistent in real market conditions.</p>
                 </div>
-                <div class="glass-card p-10 rounded-3xl">
-                    <h4 class="text-xl font-bold mb-4 neon-red-text uppercase tracking-widest">The Vision</h4>
-                    <p class="text-sm bright-white font-normal">Built for traders who want clarity over complexity and structure over noise.</p>
+                <div class="glass-card p-10 rounded-3xl border-neon-red">
+                    <h4 class="text-xl font-bold mb-4 neon-red-text uppercase heading-font">The Vision</h4>
+                    <p class="text-sm bright-white font-normal handwriting-font">Built for traders who want clarity over complexity and structure over noise.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="setups" class="py-40 bg-black/60 border-y border-white/5 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-24 reveal">
-                <h2 class="text-6xl font-black tracking-tighter uppercase mb-4">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="mb-24 reveal">
+                <h2 class="text-6xl font-black uppercase mb-4 heading-font">
                     <span class="neon-red-text">Sniper</span> <span class="neon-green-text">Trade</span>
                 </h2>
-                <p class="neon-red-text uppercase tracking-[0.5em] text-[10px] font-black authority-bold">Institutional Grade Executions Integrated</p>
+                <p class="neon-red-text uppercase tracking-[0.5em] text-[10px] authority-bold">Institutional Grade Executions Integrated</p>
             </div>
-            <div id="gallery" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 reveal">
+            <div id="gallery" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 reveal text-left">
                 </div>
         </div>
     </section>
 
     <footer id="community" class="py-40 text-center px-6">
         <div class="reveal">
-            <h2 class="text-3xl font-bold mb-16 uppercase tracking-[0.5em] bright-white">Global Connectivity</h2>
+            <h2 class="text-3xl font-bold mb-16 uppercase tracking-[0.5em] bright-white heading-font">Global Connectivity</h2>
             <div class="flex flex-wrap justify-center gap-16 text-4xl mb-40">
                 <a href="https://t.me/falconfxofficialcommunity" class="neon-green-text hover:scale-125 transition-all"><i class="fab fa-telegram-plane"></i></a>
                 <a href="https://www.facebook.com/falconfx.ffx" class="text-white hover:neon-red-text hover:scale-125 transition-all"><i class="fab fa-facebook-f"></i></a>
@@ -185,7 +183,7 @@
             <div class="bg-white p-1 rounded w-10 mx-auto mb-6 shadow-xl">
                 <img src="https://i.ibb.co.com/LD3KNG97/5800d8e33c0a010006bb457cdfd8f73c.jpg" class="w-full h-full object-cover rounded">
             </div>
-            <p class="text-[10px] uppercase tracking-[1em]"><span class="neon-green-text font-bold">Falcon FX</span> &copy; 2026 / <span class="neon-red-text authority-bold">Institutional Authority</span></p>
+            <p class="text-[10px] uppercase tracking-[1em]"><span class="neon-green-text font-bold heading-font">Falcon FX</span> &copy; 2026 / <span class="neon-red-text authority-bold">Institutional Authority</span></p>
         </div>
     </footer>
 

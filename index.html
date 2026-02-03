@@ -7,6 +7,7 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/avalon" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -20,6 +21,12 @@
             cursor: crosshair;
         }
 
+        /* Avalon Caps Font Application */
+        .avalon-font {
+            font-family: 'Avalon', sans-serif !important;
+            text-transform: uppercase;
+        }
+
         /* Fixed Master Background */
         .parallax-bg {
             position: fixed;
@@ -30,7 +37,7 @@
             z-index: -1;
         }
 
-        /* High-End Neon UI UX Colors */
+        /* Neon Colors */
         .neon-green-text { color: #00ff88 !important; text-shadow: 0 0 20px rgba(0, 255, 136, 0.6); }
         .neon-red-text { color: #ff3344 !important; text-shadow: 0 0 25px rgba(255, 51, 68, 0.7); }
         
@@ -46,10 +53,8 @@
             transform: translateY(-10px);
         }
         
-        /* Main Heading Style - Ultra Vibe */
-        .hero-text { font-size: clamp(2rem, 8vw, 6rem); line-height: 1.1; font-weight: 800; letter-spacing: -0.02em; }
+        .hero-text { font-size: clamp(1.8rem, 7vw, 5.5rem); line-height: 1.1; font-weight: 800; letter-spacing: 0.05em; }
 
-        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-thumb { background: #00ff88; border-radius: 10px; }
 
@@ -80,7 +85,9 @@
                 <img src="https://i.ibb.co.com/LD3KNG97/5800d8e33c0a010006bb457cdfd8f73c.jpg" class="w-full h-full object-cover rounded">
             </div>
             <div class="flex flex-col">
-                <span class="text-xl font-extrabold uppercase tracking-tighter neon-green-text">Falcon FX</span>
+                <span class="text-xl font-extrabold uppercase tracking-tighter">
+                    <span class="neon-red-text">Falcon</span> <span class="neon-green-text">FX</span>
+                </span>
                 <span class="text-[8px] neon-red-text uppercase authority-bold">Institutional Authority</span>
             </div>
         </div>
@@ -94,14 +101,14 @@
         <a href="https://t.me/falconfxofficialcommunity" class="bg-white text-black px-8 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest hover:scale-105 transition">Free Access</a>
     </nav>
 
-    <section id="home" class="min-h-screen flex flex-col justify-center items-center px-6">
-        <div class="reveal text-center">
-            <h1 class="hero-text mb-10 uppercase">
+    <section id="home" class="min-h-screen flex flex-col justify-center items-center px-6 pt-32 md:pt-20">
+        <div class="reveal text-center mt-24 md:mt-0">
+            <h1 class="hero-text mb-10 avalon-font">
                 <span class="neon-red-text">SNR || LSR || QMM</span> <br> 
                 <span class="neon-green-text text-[0.6em] tracking-[0.2em]">WITH ICT SMC AND PA</span>
             </h1>
             
-            <div class="bright-white text-sm md:text-lg max-w-4xl mx-auto mb-10 font-bold leading-relaxed uppercase tracking-wider">
+            <div class="bright-white text-xs md:text-lg max-w-4xl mx-auto mb-10 font-bold leading-relaxed avalon-font tracking-wider">
                 SNR DEFINES WHERE DECISIONS ARE MADE — NOT WHERE HOPE BEGINS.<br>
                 LSR EXPOSES LIQUIDITY — NOT RETAIL IMAGINATION.<br>
                 QMM REMAINS THE FOUNDATION, BECAUSE MANIPULATION IS NEVER RANDOM.<br>
@@ -161,7 +168,7 @@
                 <p class="neon-red-text uppercase tracking-[0.5em] text-[10px] font-black authority-bold">Institutional Grade Executions Integrated</p>
             </div>
             <div id="gallery" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 reveal">
-            </div>
+                </div>
         </div>
     </section>
 
@@ -209,7 +216,7 @@
             "https://i.ibb.co.com/h1JSDppf/ict-ictconcepts-alchemist-candlerangetheory-trader-traderindonesia-2.jpg",
             "https://i.ibb.co.com/cSRjK0pQ/ict-ictconcepts-alchemist-candlerangetheory-trader-traderindonesia-3.jpg",
             "https://i.ibb.co.com/wZk5Td28/ict-ictconcepts-alchemist-candlerangetheory-trader-traderindonesia-4.jpg",
-            "https://i.ibb.co.com/P2hmsXn/ict-ictconcepts-alchemist-candlerangetheory-trader-traderindonesia-1.jpg",
+            "https://i.ibb.co.com/P2hmsXn/ict-ictconcepts-alchemist-candlerangetheory-trader-traderindonesia.jpg",
             "https://i.ibb.co.com/kV1Sndcg/pagi-yang-cerah-abayfx-JPEG.jpg",
             "https://i.ibb.co.com/B5DqT4rk/pagi-yang-cerah-abayfx-JPEG-1.jpg",
             "https://i.ibb.co.com/zh8m583N/pagi-yang-cerah-abayfx-JPEG-2.jpg",

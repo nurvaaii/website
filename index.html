@@ -13,21 +13,20 @@
 
     <style>
         body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
+            font-family: 'Kaushan Script', cursive; 
             background-color: #000; 
             color: white; 
             overflow-x: hidden;
             cursor: crosshair;
         }
 
-        /* Power Display Font for Nav/Logo */
-        .heading-font { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.1em; }
+        /* Power Display Font for Nav only */
+        .nav-font { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.1em; }
         
-        /* Your Selected Best Font: Kaushan Script */
+        /* Master Font Class */
         .kaushan-font { 
             font-family: 'Kaushan Script', cursive !important;
             line-height: 1.4;
-            letter-spacing: 1px;
         }
 
         .parallax-bg {
@@ -54,7 +53,7 @@
             transform: translateY(-10px);
         }
         
-        .hero-text { font-size: clamp(2.5rem, 8vw, 6rem); line-height: 1.2; }
+        .hero-text { font-size: clamp(2.2rem, 8vw, 6rem); line-height: 1.2; }
 
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-thumb { background: #00ff88; border-radius: 10px; }
@@ -82,24 +81,24 @@
                 <img src="https://i.ibb.co.com/LD3KNG97/5800d8e33c0a010006bb457cdfd8f73c.jpg" class="w-full h-full object-cover rounded">
             </div>
             <div class="flex flex-col">
-                <span class="text-xl font-extrabold uppercase tracking-tighter heading-font">
+                <span class="text-xl font-extrabold uppercase tracking-tighter nav-font">
                     <span class="neon-red-text">Falcon</span> <span class="neon-green-text">FX</span>
                 </span>
-                <span class="text-[8px] neon-red-text uppercase authority-bold">Institutional Authority</span>
+                <span class="text-[8px] neon-red-text uppercase authority-bold nav-font">Institutional Authority</span>
             </div>
         </div>
         
-        <div class="hidden lg:flex gap-12 text-[10px] uppercase tracking-[0.3em]">
+        <div class="hidden lg:flex gap-12 text-[10px] uppercase tracking-[0.3em] nav-font">
             <a href="#home" class="nav-bold hover:neon-green-text transition">Intro</a>
             <a href="#about" class="nav-bold hover:neon-green-text transition">Philosophy</a>
             <a href="#setups" class="nav-bold hover:neon-green-text transition text-white">Archives</a>
             <a href="#community" class="nav-bold hover:neon-green-text transition">Network</a>
         </div>
-        <a href="https://t.me/falconfxofficialcommunity" class="bg-white text-black px-8 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest hover:scale-105 transition heading-font">Free Access</a>
+        <a href="https://t.me/falconfxofficialcommunity" class="bg-white text-black px-8 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest hover:scale-105 transition nav-font">Free Access</a>
     </nav>
 
-    <section id="home" class="min-h-screen flex flex-col justify-center items-center px-6 pt-32 md:pt-20">
-        <div class="reveal text-center mt-24 md:mt-0">
+    <section id="home" class="min-h-screen flex flex-col justify-center items-center px-6 pt-44 md:pt-20">
+        <div class="reveal text-center mt-10 md:mt-0">
             <h1 class="hero-text mb-10 kaushan-font">
                 <span class="neon-red-text">SNR || LSR || QMM</span> <br> 
                 <span class="neon-green-text text-[0.6em]">WITH ICT SMC AND PA</span>
@@ -127,8 +126,8 @@
             </div>
 
             <div class="flex gap-10 justify-center">
-                <button onclick="document.getElementById('setups').scrollIntoView()" class="bg-white text-black px-14 py-6 rounded-2xl font-black uppercase tracking-widest text-[11px] hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all heading-font">Execution Logs</button>
-                <a href="https://t.me/falconfxofficialcommunity" class="glass-card px-14 py-6 rounded-2xl font-black uppercase tracking-widest text-[11px] border border-white/10 hover:border-red-500 transition-all heading-font">Pulse Access</a>
+                <button onclick="document.getElementById('setups').scrollIntoView()" class="bg-white text-black px-14 py-6 rounded-2xl font-black uppercase tracking-widest text-[11px] hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all nav-font">Execution Logs</button>
+                <a href="https://t.me/falconfxofficialcommunity" class="glass-card px-14 py-6 rounded-2xl font-black uppercase tracking-widest text-[11px] border border-white/10 hover:border-red-500 transition-all nav-font">Pulse Access</a>
             </div>
         </div>
     </section>
@@ -136,21 +135,21 @@
     <section id="about" class="py-40 px-6">
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
             <div class="reveal">
-                <h2 class="text-5xl font-extrabold mb-10 tracking-tighter uppercase heading-font">Our Core Focus: <br><span class="neon-green-text">SNR & Structure</span></h2>
-                <div class="space-y-6 bright-white text-lg leading-relaxed font-normal">
+                <h2 class="text-5xl font-extrabold mb-10 tracking-tighter uppercase kaushan-font neon-green-text">Our Core Focus: <br>SNR & Structure</h2>
+                <div class="space-y-6 bright-white text-xl leading-relaxed kaushan-font">
                     <p>Everything starts and ends with price action. I use ICT and Smart Money Concepts (SMC) strictly as a supporting framework—not as the main system.</p>
-                    <p>These concepts help refine entries, understand liquidity behavior, and improve trade timing, but <span class="neon-green-text font-bold uppercase">SNR remains the foundation</span> of every trade.</p>
+                    <p>These concepts help refine entries, understand liquidity behavior, and improve trade timing, but <span class="neon-green-text font-bold">SNR remains the foundation</span> of every trade.</p>
                     <p>No indicator dependency. No overcomplicated models. Just clean levels, structure, and disciplined execution.</p>
                 </div>
             </div>
             <div class="reveal grid grid-cols-1 gap-6">
                 <div class="glass-card p-10 rounded-3xl">
-                    <h4 class="text-xl font-bold mb-4 neon-green-text uppercase heading-font">The Objective</h4>
-                    <p class="text-sm bright-white kaushan-font">Identify high-probability zones, manage risk intelligently, and stay consistent in real market conditions.</p>
+                    <h4 class="text-2xl font-bold mb-4 neon-green-text uppercase kaushan-font">The Objective</h4>
+                    <p class="text-lg bright-white kaushan-font">Identify high-probability zones, manage risk intelligently, and stay consistent in real market conditions.</p>
                 </div>
                 <div class="glass-card p-10 rounded-3xl">
-                    <h4 class="text-xl font-bold mb-4 neon-red-text uppercase heading-font">The Vision</h4>
-                    <p class="text-sm bright-white kaushan-font">Built for traders who want clarity over complexity and structure over noise.</p>
+                    <h4 class="text-2xl font-bold mb-4 neon-red-text uppercase kaushan-font">The Vision</h4>
+                    <p class="text-lg bright-white kaushan-font">Built for traders who want clarity over complexity and structure over noise.</p>
                 </div>
             </div>
         </div>
@@ -159,10 +158,10 @@
     <section id="setups" class="py-40 bg-black/60 border-y border-white/5 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-6 text-center">
             <div class="mb-24 reveal">
-                <h2 class="text-6xl font-black uppercase mb-4 heading-font">
+                <h2 class="text-6xl font-black uppercase mb-4 kaushan-font">
                     <span class="neon-red-text">Sniper</span> <span class="neon-green-text">Trade</span>
                 </h2>
-                <p class="neon-red-text uppercase tracking-[0.5em] text-[10px] authority-bold">Institutional Grade Executions Integrated</p>
+                <p class="neon-red-text uppercase tracking-[0.5em] text-[10px] authority-bold nav-font">Institutional Grade Executions Integrated</p>
             </div>
             <div id="gallery" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 reveal text-left">
                 </div>
@@ -171,7 +170,7 @@
 
     <footer id="community" class="py-40 text-center px-6">
         <div class="reveal">
-            <h2 class="text-3xl font-bold mb-16 uppercase tracking-[0.5em] bright-white heading-font">Global Connectivity</h2>
+            <h2 class="text-3xl font-bold mb-16 uppercase tracking-[0.5em] bright-white kaushan-font">Global Connectivity</h2>
             <div class="flex flex-wrap justify-center gap-16 text-4xl mb-40">
                 <a href="https://t.me/falconfxofficialcommunity" class="neon-green-text hover:scale-125 transition-all"><i class="fab fa-telegram-plane"></i></a>
                 <a href="https://www.facebook.com/falconfx.ffx" class="text-white hover:neon-red-text hover:scale-125 transition-all"><i class="fab fa-facebook-f"></i></a>
@@ -182,7 +181,7 @@
             <div class="bg-white p-1 rounded w-10 mx-auto mb-6 shadow-xl">
                 <img src="https://i.ibb.co.com/LD3KNG97/5800d8e33c0a010006bb457cdfd8f73c.jpg" class="w-full h-full object-cover rounded">
             </div>
-            <p class="text-[10px] uppercase tracking-[1em]"><span class="neon-green-text font-bold heading-font">Falcon FX</span> &copy; 2026 / <span class="neon-red-text authority-bold">Institutional Authority</span></p>
+            <p class="text-[12px] uppercase tracking-[1em] kaushan-font"><span class="neon-green-text font-bold">Falcon FX</span> &copy; 2026 / <span class="neon-red-text authority-bold">Institutional Authority</span></p>
         </div>
     </footer>
 
@@ -213,7 +212,7 @@
             "https://i.ibb.co.com/h1JSDppf/ict-ictconcepts-alchemist-candlerangetheory-trader-traderindonesia-2.jpg",
             "https://i.ibb.co.com/cSRjK0pQ/ict-ictconcepts-alchemist-candlerangetheory-trader-traderindonesia-3.jpg",
             "https://i.ibb.co.com/wZk5Td28/ict-ictconcepts-alchemist-candlerangetheory-trader-traderindonesia-4.jpg",
-            "https://i.ibb.co.com/P2hmsXn/ict-ictconcepts-alchemist-candlerangetheory-trader-traderindonesia.jpg",
+            "https://i.ibb.co.com/P2hmsXn/ict-ictconcepts-alchemist-candlerangetheory-trader-traderindonesia-1.jpg",
             "https://i.ibb.co.com/kV1Sndcg/pagi-yang-cerah-abayfx-JPEG.jpg",
             "https://i.ibb.co.com/B5DqT4rk/pagi-yang-cerah-abayfx-JPEG-1.jpg",
             "https://i.ibb.co.com/zh8m583N/pagi-yang-cerah-abayfx-JPEG-2.jpg",

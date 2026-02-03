@@ -6,7 +6,7 @@
     <title>Falcon FX | Institutional Authority</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Reenie+Beanie&family=Plus+Jakarta+Sans:wght@200;400;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kaushan+Script&family=Plus+Jakarta+Sans:wght@200;400;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -20,14 +20,13 @@
             cursor: crosshair;
         }
 
-        /* Power Display Font */
+        /* Power Display Font for Nav/Logo */
         .heading-font { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.1em; }
         
-        /* Clear Handwriting Font for the Long Content */
-        .handwriting-font { 
-            font-family: 'Reenie Beanie', cursive; 
-            font-size: 1.6rem !important; 
-            line-height: 1.2; 
+        /* Your Selected Best Font: Kaushan Script */
+        .kaushan-font { 
+            font-family: 'Kaushan Script', cursive !important;
+            line-height: 1.4;
             letter-spacing: 1px;
         }
 
@@ -55,7 +54,7 @@
             transform: translateY(-10px);
         }
         
-        .hero-text { font-size: clamp(2.5rem, 8vw, 6rem); line-height: 1; font-weight: 400; }
+        .hero-text { font-size: clamp(2.5rem, 8vw, 6rem); line-height: 1.2; }
 
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-thumb { background: #00ff88; border-radius: 10px; }
@@ -83,8 +82,8 @@
                 <img src="https://i.ibb.co.com/LD3KNG97/5800d8e33c0a010006bb457cdfd8f73c.jpg" class="w-full h-full object-cover rounded">
             </div>
             <div class="flex flex-col">
-                <span class="text-xl font-extrabold uppercase tracking-tighter">
-                    <span class="neon-red-text heading-font">Falcon</span> <span class="neon-green-text heading-font">FX</span>
+                <span class="text-xl font-extrabold uppercase tracking-tighter heading-font">
+                    <span class="neon-red-text">Falcon</span> <span class="neon-green-text">FX</span>
                 </span>
                 <span class="text-[8px] neon-red-text uppercase authority-bold">Institutional Authority</span>
             </div>
@@ -96,17 +95,17 @@
             <a href="#setups" class="nav-bold hover:neon-green-text transition text-white">Archives</a>
             <a href="#community" class="nav-bold hover:neon-green-text transition">Network</a>
         </div>
-        <a href="https://t.me/falconfxofficialcommunity" class="bg-white text-black px-8 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest hover:scale-105 transition">Free Access</a>
+        <a href="https://t.me/falconfxofficialcommunity" class="bg-white text-black px-8 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest hover:scale-105 transition heading-font">Free Access</a>
     </nav>
 
     <section id="home" class="min-h-screen flex flex-col justify-center items-center px-6 pt-32 md:pt-20">
         <div class="reveal text-center mt-24 md:mt-0">
-            <h1 class="hero-text mb-10 heading-font">
+            <h1 class="hero-text mb-10 kaushan-font">
                 <span class="neon-red-text">SNR || LSR || QMM</span> <br> 
-                <span class="neon-green-text text-[0.6em] tracking-[0.2em]">WITH ICT SMC AND PA</span>
+                <span class="neon-green-text text-[0.6em]">WITH ICT SMC AND PA</span>
             </h1>
             
-            <div class="bright-white handwriting-font max-w-4xl mx-auto mb-10 uppercase">
+            <div class="bright-white kaushan-font text-xl md:text-3xl max-w-5xl mx-auto mb-12 leading-relaxed">
                 SNR DEFINES WHERE DECISIONS ARE MADE — NOT WHERE HOPE BEGINS.<br>
                 LSR EXPOSES LIQUIDITY — NOT RETAIL IMAGINATION.<br>
                 QMM REMAINS THE FOUNDATION, BECAUSE MANIPULATION IS NEVER RANDOM.<br>
@@ -145,13 +144,13 @@
                 </div>
             </div>
             <div class="reveal grid grid-cols-1 gap-6">
-                <div class="glass-card p-10 rounded-3xl border-neon-green">
+                <div class="glass-card p-10 rounded-3xl">
                     <h4 class="text-xl font-bold mb-4 neon-green-text uppercase heading-font">The Objective</h4>
-                    <p class="text-sm bright-white font-normal handwriting-font">Identify high-probability zones, manage risk intelligently, and stay consistent in real market conditions.</p>
+                    <p class="text-sm bright-white kaushan-font">Identify high-probability zones, manage risk intelligently, and stay consistent in real market conditions.</p>
                 </div>
-                <div class="glass-card p-10 rounded-3xl border-neon-red">
+                <div class="glass-card p-10 rounded-3xl">
                     <h4 class="text-xl font-bold mb-4 neon-red-text uppercase heading-font">The Vision</h4>
-                    <p class="text-sm bright-white font-normal handwriting-font">Built for traders who want clarity over complexity and structure over noise.</p>
+                    <p class="text-sm bright-white kaushan-font">Built for traders who want clarity over complexity and structure over noise.</p>
                 </div>
             </div>
         </div>

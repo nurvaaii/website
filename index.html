@@ -7,18 +7,34 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
     <style>
+        /* Base Font Setting - Applied to body so it inherits correctly */
         body { 
-            font-family: 'Montserrat', sans-serif !important; 
+            font-family: 'Montserrat', sans-serif; 
             font-weight: 600; 
             background-color: #000; 
             color: white; 
             overflow-x: hidden;
             cursor: crosshair;
+        }
+
+        /* Specific overrides to ensure Montserrat is used where needed without breaking icons */
+        h1, h2, h3, h4, h5, h6, p, a, span, button, div {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Protect Font Awesome Icons from being overwritten */
+        .fas, .fab, .far, .fa {
+            font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+            font-weight: 900; /* Brands usually need 400, solid 900 */
+        }
+        .fab {
+            font-weight: 400; /* Brands specific fix */
         }
 
         .parallax-bg {
@@ -57,9 +73,6 @@
         }
 
         .authority-bold { font-weight: 900 !important; letter-spacing: 0.4em !important; }
-        
-        /* Force Montserrat on everything */
-        * { font-family: 'Montserrat', sans-serif !important; font-style: normal !important; }
     </style>
 </head>
 <body>

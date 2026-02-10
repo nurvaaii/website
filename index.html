@@ -13,7 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
     <style>
-        /* Base Font Setting - Applied to body so it inherits correctly */
+        /* Base Font Setting */
         body { 
             font-family: 'Montserrat', sans-serif; 
             font-weight: 600; 
@@ -23,19 +23,16 @@
             cursor: crosshair;
         }
 
-        /* Specific overrides to ensure Montserrat is used where needed without breaking icons */
         h1, h2, h3, h4, h5, h6, p, a, span, button, div {
             font-family: 'Montserrat', sans-serif;
         }
 
-        /* Protect Font Awesome Icons from being overwritten */
+        /* Icon Font Fix */
         .fas, .fab, .far, .fa {
             font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
-            font-weight: 900; /* Brands usually need 400, solid 900 */
+            font-weight: 900; 
         }
-        .fab {
-            font-weight: 400; /* Brands specific fix */
-        }
+        .fab { font-weight: 400; }
 
         .parallax-bg {
             position: fixed;
@@ -46,8 +43,10 @@
             z-index: -1;
         }
 
-        .neon-green-text { color: #00ff88 !important; text-shadow: 0 0 20px rgba(0, 255, 136, 0.6); }
-        .neon-red-text { color: #ff3344 !important; text-shadow: 0 0 25px rgba(255, 51, 68, 0.7); }
+        /* CONVERTED TO WHITE as requested */
+        /* Previously Neon Green & Red - Now Pure White with subtle glow */
+        .neon-green-text { color: #ffffff !important; text-shadow: 0 0 15px rgba(255, 255, 255, 0.3); }
+        .neon-red-text { color: #ffffff !important; text-shadow: 0 0 15px rgba(255, 255, 255, 0.3); }
         
         .glass-card { 
             background: rgba(255, 255, 255, 0.01); 
@@ -57,18 +56,18 @@
         }
         .glass-card:hover { 
             background: rgba(255, 255, 255, 0.05); 
-            border-color: rgba(0, 255, 136, 0.3);
+            border-color: rgba(255, 255, 255, 0.3);
             transform: translateY(-10px);
         }
         
         .hero-text { font-size: clamp(2.2rem, 8vw, 6rem); line-height: 1.2; font-weight: 900; }
 
         ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-thumb { background: #00ff88; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: #ffffff; border-radius: 10px; }
 
         #mouse-light {
             position: fixed; width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(0,255,136,0.04) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
             border-radius: 50%; pointer-events: none; z-index: 1; transform: translate(-50%, -50%);
         }
 
@@ -94,10 +93,10 @@
         </div>
         
         <div class="hidden lg:flex gap-12 text-[10px] uppercase tracking-[0.3em] font-bold">
-            <a href="#home" class="hover:neon-green-text transition text-white">Intro</a>
-            <a href="#about" class="hover:neon-green-text transition text-white">Philosophy</a>
-            <a href="#setups" class="hover:neon-green-text transition text-white">Archives</a>
-            <a href="#community" class="hover:neon-green-text transition text-white">Network</a>
+            <a href="#home" class="hover:text-gray-300 transition text-white">Intro</a>
+            <a href="#about" class="hover:text-gray-300 transition text-white">Philosophy</a>
+            <a href="#setups" class="hover:text-gray-300 transition text-white">Archives</a>
+            <a href="#community" class="hover:text-gray-300 transition text-white">Network</a>
         </div>
         <a href="https://t.me/falconfxofficialcommunity" class="bg-white text-black px-8 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest hover:scale-105 transition">Free Access</a>
     </nav>
@@ -122,16 +121,18 @@
             </div>
 
             <div class="flex justify-center gap-8 mb-14 text-2xl">
-                <a href="https://t.me/falconfxofficialcommunity" target="_blank" class="hover:scale-125 transition neon-green-text"><i class="fab fa-telegram-plane"></i></a>
-                <a href="https://www.facebook.com/falconfx.ffx" target="_blank" class="hover:scale-125 transition text-white hover:neon-red-text"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/falconfx_ffx" target="_blank" class="hover:scale-125 transition neon-red-text"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.tiktok.com/@falconfx_ffx" target="_blank" class="hover:scale-125 transition text-gray-400 hover:text-white"><i class="fab fa-tiktok"></i></a>
-                <a href="https://www.youtube.com/@falconfx-ffx.official" target="_blank" class="hover:scale-125 transition text-red-600"><i class="fab fa-youtube"></i></a>
+                <a href="https://wa.me/917379884991" target="_blank" class="hover:scale-125 transition text-white hover:text-gray-300"><i class="fab fa-whatsapp"></i></a>
+                
+                <a href="https://t.me/falconfxofficialcommunity" target="_blank" class="hover:scale-125 transition text-white hover:text-gray-300"><i class="fab fa-telegram-plane"></i></a>
+                <a href="https://www.facebook.com/falconfx.ffx" target="_blank" class="hover:scale-125 transition text-white hover:text-gray-300"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/falconfx_ffx" target="_blank" class="hover:scale-125 transition text-white hover:text-gray-300"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@falconfx_ffx" target="_blank" class="hover:scale-125 transition text-white hover:text-gray-300"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.youtube.com/@falconfx-ffx.official" target="_blank" class="hover:scale-125 transition text-white hover:text-gray-300"><i class="fab fa-youtube"></i></a>
             </div>
 
             <div class="flex gap-10 justify-center">
                 <button onclick="document.getElementById('setups').scrollIntoView()" class="bg-white text-black px-14 py-6 rounded-2xl font-black uppercase tracking-widest text-[11px] hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all">Execution Logs</button>
-                <a href="https://t.me/falconfxofficialcommunity" class="glass-card px-14 py-6 rounded-2xl font-black uppercase tracking-widest text-[11px] border border-white/10 hover:border-red-500 transition-all text-white">Pulse Access</a>
+                <a href="https://t.me/falconfxofficialcommunity" class="glass-card px-14 py-6 rounded-2xl font-black uppercase tracking-widest text-[11px] border border-white/10 hover:border-white transition-all text-white">Pulse Access</a>
             </div>
         </div>
     </section>
@@ -176,11 +177,13 @@
         <div class="reveal">
             <h2 class="text-3xl font-bold mb-16 uppercase tracking-[0.5em]">Global Connectivity</h2>
             <div class="flex flex-wrap justify-center gap-16 text-4xl mb-40">
+                <a href="https://wa.me/917379884991" target="_blank" class="hover:scale-125 transition text-white hover:text-gray-300"><i class="fab fa-whatsapp"></i></a>
+                
                 <a href="https://t.me/falconfxofficialcommunity" class="neon-green-text hover:scale-125 transition-all"><i class="fab fa-telegram-plane"></i></a>
-                <a href="https://www.facebook.com/falconfx.ffx" class="text-white hover:neon-red-text hover:scale-125 transition-all"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.facebook.com/falconfx.ffx" class="text-white hover:text-gray-300 hover:scale-125 transition-all"><i class="fab fa-facebook-f"></i></a>
                 <a href="https://www.instagram.com/falconfx_ffx" class="neon-red-text hover:scale-125 transition-all"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.tiktok.com/@falconfx_ffx" class="text-gray-400 hover:text-white transition-all"><i class="fab fa-tiktok"></i></a>
-                <a href="https://www.youtube.com/@falconfx-ffx.official" class="text-red-600 hover:scale-125 transition-all"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.tiktok.com/@falconfx_ffx" class="text-white hover:text-gray-300 transition-all"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.youtube.com/@falconfx-ffx.official" class="text-white hover:scale-125 transition-all"><i class="fab fa-youtube"></i></a>
             </div>
             <div class="bg-white p-1 rounded w-10 mx-auto mb-6 shadow-xl">
                 <img src="https://i.ibb.co.com/LD3KNG97/5800d8e33c0a010006bb457cdfd8f73c.jpg" class="w-full h-full object-cover rounded">

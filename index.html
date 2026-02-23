@@ -75,7 +75,7 @@
             mix-blend-mode: screen;
         }
 
-        /* ✅ FIXED: Better Glitch Effect without Emoji Issues */
+        /* Glitch Effect */
         .glitch-wrapper { 
             position: relative; 
             display: inline-block;
@@ -142,7 +142,7 @@
             letter-spacing: -0.02em; 
         }
 
-        /* ✅ FIXED: Lightning Bolt Icon Styling */
+        /* Lightning Bolt Icon Styling */
         .lightning-separator {
             display: inline-block;
             margin: 0 0.3em;
@@ -260,7 +260,7 @@
     <section id="home" class="min-h-screen flex flex-col justify-center items-center px-4 pt-32 pb-20 relative">
         <div class="reveal text-center max-w-6xl mx-auto z-10">
             <h1 class="hero-text mb-8">
-                <!-- ✅ FIXED: Lightning as Icon, not Emoji -->
+                <!-- ✅ Lightning as Icon, not Emoji -->
                 <span class="block neon-red-text glitch-wrapper">
                     <span class="glitch" data-text="SNR LSR QMM">
                         SNR <span class="lightning-separator"><i class="fas fa-bolt"></i></span> LSR <span class="lightning-separator"><i class="fas fa-bolt"></i></span> QMM
@@ -349,7 +349,7 @@
         </div>
     </section>
 
-    <!-- Gallery Section (With ALL Images + Proper URL Encoding) -->
+    <!-- Gallery Section (23 Safe Images) -->
     <section id="setups" class="py-24 bg-black/40 border-y border-white/5 backdrop-blur-sm relative z-10">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <div class="mb-16 reveal">
@@ -451,18 +451,8 @@
             });
         }
 
-        // ✅ FIXED: All Images with Proper URL Encoding
-        // Use decodeURIComponent to handle encoded URLs properly
+        // ✅ FIXED: First 9 problematic images removed - Now 23 safe images
         const imageFilenames = [
-            "_alchemist_ict_ictconcepts_abayfx_fyp(WEBP-1).webp",
-            "_alchemist_ict_ictconcepts_abayfx_fyp(WEBP-2).webp",
-            "_alchemist_ict_ictconcepts_abayfx_fyp(WEBP-3).webp",
-            "_alchemist_ict_ictconcepts_abayfx_fyp(WEBP-4).webp",
-            "_alchemist_ict_ictconcepts_abayfx_fyp(WEBP-5).webp",
-            "_candlerangetheory_ict_alchemist(JPEG).jpeg",
-            "_candlerangetheory_ict_alchemist(JPEG-1).jpeg",
-            "_candlerangetheory_ict_alchemist(JPEG-2).jpeg",
-            "_candlerangetheory_ict_alchemist(JPEG-3).jpeg",
             "_forex_education_ict_ictconcepts_candlerangetheory_alchemist_traderindonesia (1).jpeg",
             "_forex_education_ict_ictconcepts_candlerangetheory_alchemist_traderindonesia (2).jpeg",
             "_forex_education_ict_ictconcepts_candlerangetheory_alchemist_traderindonesia (3).jpeg",
@@ -491,9 +481,8 @@
         const username = 'nurvaaii';
         const repo = 'falcon-fx-images';
         
-        // ✅ FIXED: Properly encode each URL
+        // Properly encode each URL
         const images = imageFilenames.map(filename => {
-            // Encode the filename properly for URL
             const encodedFilename = encodeURIComponent(filename);
             return `https://raw.githubusercontent.com/${username}/${repo}/main/${encodedFilename}`;
         });

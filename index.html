@@ -118,7 +118,13 @@
             transform: perspective(1000px);
         }
         
-        .hero-text { font-size: clamp(2.5rem, 9vw, 7rem); line-height: 1.1; font-weight: 900; letter-spacing: -0.03em; }
+        /* ✅ UPDATED: Reduced Font Size to Prevent Line Break */
+        .hero-text { 
+            font-size: clamp(1.8rem, 6vw, 4rem); 
+            line-height: 1.3; 
+            font-weight: 900; 
+            letter-spacing: -0.02em; 
+        }
 
         /* Scrollbar */
         ::-webkit-scrollbar { width: 6px; }
@@ -203,11 +209,13 @@
     <section id="home" class="min-h-screen flex flex-col justify-center items-center px-4 pt-32 pb-20 relative">
         <div class="reveal text-center max-w-6xl mx-auto z-10">
             <h1 class="hero-text mb-8">
-                <!-- ✅ UPDATED: Lightning Bolt Symbol Added -->
+                <!-- ✅ UPDATED: Smaller Font Size -->
                 <span class="block neon-red-text glitch-wrapper">
                     <span class="glitch" data-text="SNR ⚡ LSR ⚡ QMM">SNR ⚡ LSR ⚡ QMM</span>
                 </span> 
-                <span class="block text-[0.5em] md:text-[0.6em] neon-green-text mt-2">WITH ICT SMC AND PA</span>
+                <span class="block text-[0.4em] md:text-[0.45em] neon-green-text mt-3">
+                    WITH ICT SMC AND PA
+                </span>
             </h1>
             
             <div class="text-gray-300 text-sm md:text-xl max-w-4xl mx-auto mb-12 leading-relaxed font-medium space-y-2">

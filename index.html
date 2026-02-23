@@ -140,7 +140,7 @@
 </head>
 <body class="antialiased selection:bg-neonGreen selection:text-black">
 
-    <!-- 1. Preloader -->
+    <!-- Preloader -->
     <div id="preloader">
         <div class="text-center">
             <h2 class="text-2xl font-black uppercase tracking-[0.5em] mb-4 text-white">Falcon FX</h2>
@@ -203,7 +203,10 @@
     <section id="home" class="min-h-screen flex flex-col justify-center items-center px-4 pt-32 pb-20 relative">
         <div class="reveal text-center max-w-6xl mx-auto z-10">
             <h1 class="hero-text mb-8">
-                <span class="block neon-red-text glitch-wrapper"><span class="glitch" data-text="SNR || LSR || QMM">SNR || LSR || QMM</span></span> 
+                <!-- ✅ UPDATED: Lightning Bolt Symbol Added -->
+                <span class="block neon-red-text glitch-wrapper">
+                    <span class="glitch" data-text="SNR ⚡ LSR ⚡ QMM">SNR ⚡ LSR ⚡ QMM</span>
+                </span> 
                 <span class="block text-[0.5em] md:text-[0.6em] neon-green-text mt-2">WITH ICT SMC AND PA</span>
             </h1>
             
@@ -234,7 +237,7 @@
         </div>
     </section>
 
-    <!-- 2. TradingView Widget Section (New) -->
+    <!-- TradingView Widget Section -->
     <section class="py-10 border-y border-white/5 bg-black/40 backdrop-blur-sm">
         <div class="max-w-7xl mx-auto px-4">
             <!-- TradingView Widget BEGIN -->
@@ -413,7 +416,6 @@
             
             const div = document.createElement('div');
             div.className = 'glass-card p-2 rounded-2xl overflow-hidden group relative h-full';
-            // Added data-tilt to gallery items too
             div.setAttribute('data-tilt', '');
             div.setAttribute('data-tilt-max', '5');
             

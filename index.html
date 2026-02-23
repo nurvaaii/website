@@ -233,7 +233,7 @@
             <h1 class="hero-text mb-8">
                 <!-- ✅ Lightning Bolt Symbol Added -->
                 <span class="block neon-red-text glitch-wrapper">
-                    <span class="glitch" data-text="SNR ⚡ LSR ⚡ QMM">SNR ⚡ LSR ⚡ QMM</span>
+                    <span class="glitch" data-text="SNR ⚡ LSR ⚡ QMM">SNR ⚡ LSR  QMM</span>
                 </span> 
                 <span class="block text-[0.4em] md:text-[0.45em] neon-green-text mt-3">
                     WITH ICT SMC AND PA
@@ -420,45 +420,40 @@
             });
         }
 
-        // ✅ ALL 37 IMAGES - URLs trimmed properly
+        // ✅ ALL 37 IMAGES - Properly Encoded URLs from GitHub
         const images = [
-            "https://i.ibb.co.com/HL6tfkyw/alchemist-ict-ictconcepts-abayfx-fyp-WEBP-1.webp",
-            "https://i.ibb.co.com/PzG2MyQ5/alchemist-ict-ictconcepts-abayfx-fyp-WEBP-2.webp",
-            "https://i.ibb.co.com/PsRhVsTw/alchemist-ict-ictconcepts-abayfx-fyp-WEBP-3.webp",
-            "https://i.ibb.co.com/wNWBxWv3/alchemist-ict-ictconcepts-abayfx-fyp-WEBP-4.webp",
-            "https://i.ibb.co.com/Pz4KWMsT/alchemist-ict-ictconcepts-abayfx-fyp-WEBP-5.webp",
-            "https://i.ibb.co.com/Lhvm5zNp/candlerangetheory-ict-alchemist-JPEG.jpg",
-            "https://i.ibb.co.com/VYM1rV04/candlerangetheory-ict-alchemist-JPEG-1.jpg",
-            "https://i.ibb.co.com/chT4NfVS/candlerangetheory-ict-alchemist-JPEG-2.jpg",
-            "https://i.ibb.co.com/vxq5Cqbc/candlerangetheory-ict-alchemist-JPEG-3.jpg",
-            "https://i.ibb.co.com/xSrywwNd/forex-education-ict-ictconcepts-candlerangetheory-alchemist-traderindonesia-1.jpg",
-            "https://i.ibb.co.com/JWH7VvPf/forex-education-ict-ictconcepts-candlerangetheory-alchemist-traderindonesia-2.jpg",
-            "https://i.ibb.co.com/zhmCDhPh/forex-education-ict-ictconcepts-candlerangetheory-alchemist-traderindonesia-3.jpg",
-            "https://i.ibb.co.com/sdHDKxvt/forex-education-ict-ictconcepts-candlerangetheory-alchemist-traderindonesia-4.jpg",
-            "https://i.ibb.co.com/YFcNGcGC/forex-education-ict-ictconcepts-candlerangetheory-alchemist-traderindonesia.jpg",
-            "https://i.ibb.co.com/nNy0LNZJ/ict-ictconcepts-alchemist-candlerangetheory-trader-traderindonesia-1.jpg",
-            "https://i.ibb.co.com/h1JSDppf/ict-ictconcepts-alchemist-candlerangetheory-trader-traderindonesia-2.jpg",
-            "https://i.ibb.co.com/cSRjK0pQ/ict-ictconcepts-alchemist-candlerangetheory-trader-traderindonesia-3.jpg",
-            "https://i.ibb.co.com/wZk5Td28/ict-ictconcepts-alchemist-candlerangetheory-trader-traderindonesia-4.jpg",
-            "https://i.ibb.co.com/P2hmsXn/ict-ictconcepts-alchemist-candlerangetheory-trader-traderindonesia-1.jpg",
-            "https://i.ibb.co.com/kV1Sndcg/pagi-yang-cerah-abayfx-JPEG.jpg",
-            "https://i.ibb.co.com/B5DqT4rk/pagi-yang-cerah-abayfx-JPEG-1.jpg",
-            "https://i.ibb.co.com/zh8m583N/pagi-yang-cerah-abayfx-JPEG-2.jpg",
-            "https://i.ibb.co.com/whLYR4VZ/pagi-yang-cerah-abayfx-JPEG-3.jpg",
-            "https://i.ibb.co.com/s9yMLTZh/pagi-yang-cerah-abayfx-JPEG-4.jpg",
-            "https://i.ibb.co.com/pTzPq5H/wes-angel-tenan-abayfx-ict-ictconcepts-candlerangetheory-tradingforex-JPEG-1.jpg",
-            "https://i.ibb.co.com/j9MDgcWg/wes-angel-tenan-abayfx-ict-ictconcepts-candlerangetheory-tradingforex-JPEG-2.jpg",
-            "https://i.ibb.co.com/ymP0DjSY/wes-angel-tenan-abayfx-ict-ictconcepts-candlerangetheory-tradingforex-JPEG-3.jpg",
-            "https://i.ibb.co.com/8grBL42F/wes-angel-tenan-abayfx-ict-ictconcepts-candlerangetheory-tradingforex-JPEG-4.jpg",
-            "https://i.ibb.co.com/whRXrPy6/wes-angel-tenan-abayfx-ict-ictconcepts-candlerangetheory-tradingforex-JPEG-5.jpg",
-            "https://i.ibb.co.com/1tnxYty0/wes-angel-tenan-abayfx-ict-ictconcepts-candlerangetheory-tradingforex-JPEG-6.jpg",
-            "https://i.ibb.co.com/JwWp52br/wes-angel-tenan-abayfx-ict-ictconcepts-candlerangetheory-tradingforex-JPEG-7.jpg",
-            "https://i.ibb.co.com/xKfFD2wq/wes-angel-tenan-abayfx-ict-ictconcepts-candlerangetheory-tradingforex-JPEG-8.jpg",
-            "https://i.ibb.co.com/tMcbF7n8/wes-angel-tenan-abayfx-ict-ictconcepts-candlerangetheory-tradingforex-JPEG-9.jpg",
-            "https://i.ibb.co.com/fYVS10VW/wes-angel-tenan-abayfx-ict-ictconcepts-candlerangetheory-tradingforex-JPEG-10.jpg",
-            "https://i.ibb.co.com/nsxXZK7x/wes-angel-tenan-abayfx-ict-ictconcepts-candlerangetheory-tradingforex-JPEG-11.jpg",
-            "https://i.ibb.co.com/MkDFwXxw/wes-angel-tenan-abayfx-ict-ictconcepts-candlerangetheory-tradingforex-JPEG-12.jpg",
-            "https://i.ibb.co.com/hFX61qqL/wes-angel-tenan-abayfx-ict-ictconcepts-candlerangetheory-tradingforex-JPEG.jpg"
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/_alchemist_ict_ictconcepts_abayfx_fyp(WEBP-1).webp",
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/_alchemist_ict_ictconcepts_abayfx_fyp(WEBP-2).webp",
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/_alchemist_ict_ictconcepts_abayfx_fyp(WEBP-3).webp",
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/_alchemist_ict_ictconcepts_abayfx_fyp(WEBP-4).webp",
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/_alchemist_ict_ictconcepts_abayfx_fyp(WEBP-5).webp",
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/_candlerangetheory_ict_alchemist(JPEG).jpeg",
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/_candlerangetheory_ict_alchemist(JPEG-1).jpeg",
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/_candlerangetheory_ict_alchemist(JPEG-2).jpeg",
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/_candlerangetheory_ict_alchemist(JPEG-3).jpeg",
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/_forex_education_ict_ictconcepts_candlerangetheory_alchemist_traderindonesia%20(1).jpeg",
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/_forex_education_ict_ictconcepts_candlerangetheory_alchemist_traderindonesia%20(2).jpeg",
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/_forex_education_ict_ictconcepts_candlerangetheory_alchemist_traderindonesia%20(3).jpeg",
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/_forex_education_ict_ictconcepts_candlerangetheory_alchemist_traderindonesia%20(4).jpeg",
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/_forex_education_ict_ictconcepts_candlerangetheory_alchemist_traderindonesia.jpeg",
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/pagi%20yang%20cerah%F0%9F%8C%A4_abayfx(JPEG).jpeg",
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/pagi%20yang%20cerah%F0%9F%8C%A4_abayfx(JPEG-1).jpeg",
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/pagi%20yang%20cerah%F0%9F%8C%A4_abayfx(JPEG-2).jpeg",
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/pagi%20yang%20cerah%F0%9F%8C%A4_abayfx(JPEG-3).jpeg",
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/pagi%20yang%20cerah%F0%9F%8C%A4_abayfx(JPEG-4).jpeg",
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/wes_angel_tenan%F0%9F%98%AE_%F0%9F%92%A8_abayfx_ict_ictconcepts_candlerangetheory_tradingforexJPEG%20(1).jpeg",
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/wes_angel_tenan%F0%9F%98%AE_%F0%9F%92%A8_abayfx_ict_ictconcepts_candlerangetheory_tradingforexJPEG%20(2).jpeg",
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/wes_angel_tenan%F0%9F%98%AE_%F0%9F%92%A8_abayfx_ict_ictconcepts_candlerangetheory_tradingforexJPEG%20(3).jpeg",
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/wes_angel_tenan%F0%9F%98%AE_%F0%9F%92%A8_abayfx_ict_ictconcepts_candlerangetheory_tradingforexJPEG%20(4).jpeg",
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/wes_angel_tenan%F0%9F%98%AE_%F0%9F%92%A8_abayfx_ict_ictconcepts_candlerangetheory_tradingforexJPEG%20(5).jpeg",
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/wes_angel_tenan%F0%9F%98%AE_%F0%9F%92%A8_abayfx_ict_ictconcepts_candlerangetheory_tradingforexJPEG%20(6).jpeg",
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/wes_angel_tenan%F0%9F%98%AE_%F0%9F%92%A8_abayfx_ict_ictconcepts_candlerangetheory_tradingforexJPEG%20(7).jpeg",
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/wes_angel_tenan%F0%9F%98%AE_%F0%9F%92%A8_abayfx_ict_ictconcepts_candlerangetheory_tradingforexJPEG%20(8).jpeg",
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/wes_angel_tenan%F0%9F%98%AE_%F0%9F%92%A8_abayfx_ict_ictconcepts_candlerangetheory_tradingforexJPEG%20(9).jpeg",
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/wes_angel_tenan%F0%9F%98%AE_%F0%9F%92%A8_abayfx_ict_ictconcepts_candlerangetheory_tradingforexJPEG%20(10).jpeg",
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/wes_angel_tenan%F0%9F%98%AE_%F0%9F%92%A8_abayfx_ict_ictconcepts_candlerangetheory_tradingforexJPEG%20(11).jpeg",
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/wes_angel_tenan%F0%9F%98%AE_%F0%9F%92%A8_abayfx_ict_ictconcepts_candlerangetheory_tradingforexJPEG%20(12).jpeg",
+            "https://raw.githubusercontent.com/nurvaaii/falcon-fx-images/main/wes_angel_tenan%F0%9F%98%AE_%F0%9F%92%A8_abayfx_ict_ictconcepts_candlerangetheory_tradingforexJPEG.jpeg"
         ];
 
         const gallery = document.getElementById('gallery');

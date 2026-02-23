@@ -48,21 +48,21 @@
             overflow-x: hidden;
         }
 
-        /* Preloader */
+        /* ✅ IMPROVED: Faster Preloader with Mobile Optimization */
         #preloader {
             position: fixed; inset: 0; z-index: 9999;
             background: #000;
             display: flex; justify-content: center; align-items: center;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.3s ease;
         }
         .loader-bar {
-            width: 200px; height: 2px; background: #333;
+            width: 150px; height: 2px; background: #333;
             position: relative; overflow: hidden;
         }
         .loader-bar::after {
             content: ''; position: absolute; left: -50%; width: 50%; height: 100%;
             background: #00ff9d;
-            animation: load 1.5s infinite ease-in-out;
+            animation: load 1s infinite ease-in-out;
         }
         @keyframes load { 0% { left: -50%; } 100% { left: 100%; } }
 
@@ -118,7 +118,6 @@
             transform: perspective(1000px);
         }
         
-        /* ✅ UPDATED: Reduced Font Size to Prevent Line Break */
         .hero-text { 
             font-size: clamp(1.8rem, 6vw, 4rem); 
             line-height: 1.3; 
@@ -142,16 +141,34 @@
         /* Lightbox Customization */
         .sl-overlay { background-color: rgba(0,0,0,0.95); }
         .sl-image img { border: 2px solid #00ff9d; box-shadow: 0 0 30px rgba(0,255,157,0.2); }
+
+        /* ✅ NEW: Image Error State */
+        .image-error {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+        }
+        .image-error i {
+            color: #444;
+            font-size: 3rem;
+        }
+        .image-error p {
+            color: #666;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-neonGreen selection:text-black">
 
-    <!-- Preloader -->
+    <!-- ✅ IMPROVED: Faster Preloader -->
     <div id="preloader">
         <div class="text-center">
-            <h2 class="text-2xl font-black uppercase tracking-[0.5em] mb-4 text-white">Falcon FX</h2>
+            <h2 class="text-xl md:text-2xl font-black uppercase tracking-[0.5em] mb-4 text-white">Falcon FX</h2>
             <div class="loader-bar"></div>
-            <p class="text-[10px] text-gray-500 mt-2 uppercase tracking-widest">Initializing System...</p>
+            <p class="text-[10px] text-gray-500 mt-2 uppercase tracking-widest">Loading...</p>
         </div>
     </div>
 
@@ -167,7 +184,7 @@
     <nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] lg:w-[90%] z-50 glass-card py-4 px-6 rounded-2xl flex justify-between items-center border-white/10">
         <div class="flex items-center gap-3">
             <div class="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center p-0.5 border border-white/20">
-                <img src="https://i.ibb.co.com/LD3KNG97/5800d8e33c0a010006bb457cdfd8f73c.jpg" class="w-full h-full object-cover rounded" alt="Logo">
+                <img src="https://i.ibb.co.com/LD3KNG97/5800d8e33c0a010006bb457cdfd8f73c.jpg" class="w-full h-full object-cover rounded" alt="Logo" onerror="this.parentElement.style.display='none'">
             </div>
             <div class="flex flex-col leading-none">
                 <span class="text-lg font-black uppercase tracking-tighter">
@@ -209,7 +226,6 @@
     <section id="home" class="min-h-screen flex flex-col justify-center items-center px-4 pt-32 pb-20 relative">
         <div class="reveal text-center max-w-6xl mx-auto z-10">
             <h1 class="hero-text mb-8">
-                <!-- ✅ UPDATED: Smaller Font Size -->
                 <span class="block neon-red-text glitch-wrapper">
                     <span class="glitch" data-text="SNR ⚡ LSR ⚡ QMM">SNR ⚡ LSR ⚡ QMM</span>
                 </span> 
@@ -296,7 +312,7 @@
         </div>
     </section>
 
-    <!-- Gallery Section (With Lightbox) -->
+    <!-- Gallery Section (With Lightbox & Error Handling) -->
     <section id="setups" class="py-24 bg-black/40 border-y border-white/5 backdrop-blur-sm relative z-10">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <div class="mb-16 reveal">
@@ -306,10 +322,15 @@
                 <p class="neon-green-text uppercase tracking-[0.4em] text-[10px] authority-bold">Institutional Grade Executions</p>
             </div>
             
-            <!-- Gallery Grid -->
+            <!-- ✅ IMPROVED: Gallery with Error Handling -->
             <div id="gallery" class="gallery-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
-                <!-- Images injected via JS -->
+                <!-- Images injected via JS with error handling -->
             </div>
+            
+            <!-- Retry Button (Hidden by default) -->
+            <button id="retry-gallery" class="hidden mt-8 px-6 py-3 bg-neonGreen text-black font-bold rounded-lg hover:bg-white transition-all">
+                <i class="fas fa-redo mr-2"></i> Retry Loading Images
+            </button>
         </div>
     </section>
 
@@ -329,7 +350,7 @@
             
             <div class="inline-flex items-center gap-3 mb-6 opacity-80 hover:opacity-100 transition-opacity">
                 <div class="w-8 h-8 bg-white/10 rounded p-0.5">
-                    <img src="https://i.ibb.co.com/LD3KNG97/5800d8e33c0a010006bb457cdfd8f73c.jpg" class="w-full h-full object-cover rounded" alt="Logo">
+                    <img src="https://i.ibb.co.com/LD3KNG97/5800d8e33c0a010006bb457cdfd8f73c.jpg" class="w-full h-full object-cover rounded" alt="Logo" onerror="this.parentElement.style.display='none'">
                 </div>
                 <span class="text-xs font-bold tracking-widest uppercase">Falcon FX</span>
             </div>
@@ -339,20 +360,40 @@
     </footer>
 
     <script>
-        // 1. Preloader Logic
-        window.addEventListener('load', () => {
+        // ✅ IMPROVED: Faster Preloader with Maximum Timeout
+        let preloaderRemoved = false;
+        
+        function removePreloader() {
+            if (preloaderRemoved) return;
+            preloaderRemoved = true;
+            
             const preloader = document.getElementById('preloader');
+            preloader.style.opacity = '0';
             setTimeout(() => {
-                preloader.style.opacity = '0';
-                setTimeout(() => {
-                    preloader.style.display = 'none';
-                    // Trigger animations after load
-                    ScrollReveal().reveal('.reveal', { distance: '50px', duration: 1200, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', interval: 100 });
-                }, 500);
-            }, 1500);
+                preloader.style.display = 'none';
+                // Trigger animations after load
+                ScrollReveal().reveal('.reveal', { 
+                    distance: '50px', 
+                    duration: 1200, 
+                    easing: 'cubic-bezier(0.16, 1, 0.3, 1)', 
+                    interval: 100,
+                    mobile: true // Enable on mobile
+                });
+            }, 300);
+        }
+        
+        // Remove preloader after 800ms (faster for mobile)
+        setTimeout(removePreloader, 800);
+        
+        // Maximum timeout: 3 seconds (prevent infinite loading)
+        setTimeout(removePreloader, 3000);
+        
+        // Also remove on window load (whichever comes first)
+        window.addEventListener('load', () => {
+            setTimeout(removePreloader, 400);
         });
 
-        // 2. Mouse Light Logic
+        // Mouse Light Logic (Disabled on Mobile)
         const mouseLight = document.getElementById('mouse-light');
         const isTouchDevice = () => (('ontouchstart' in window) || (navigator.maxTouchPoints > 0));
         
@@ -364,7 +405,7 @@
             mouseLight.style.display = 'none';
         }
 
-        // 3. Mobile Menu
+        // Mobile Menu
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
         let isMenuOpen = false;
@@ -385,16 +426,18 @@
             });
         });
 
-        // 4. Initialize 3D Tilt
-        VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
-            max: 15,
-            speed: 400,
-            glare: true,
-            "max-glare": 0.2,
-            scale: 1.05
-        });
+        // Initialize 3D Tilt (Disable on mobile for performance)
+        if (!isTouchDevice()) {
+            VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+                max: 15,
+                speed: 400,
+                glare: true,
+                "max-glare": 0.2,
+                scale: 1.05
+            });
+        }
 
-        // 5. Gallery Generation with Lightbox
+        // ✅ IMPROVED: Gallery with Error Handling & Fallback
         const images = [
             "https://i.ibb.co.com/HL6tfkyw/alchemist-ict-ictconcepts-abayfx-fyp-WEBP-1.webp",
             "https://i.ibb.co.com/PzG2MyQ5/alchemist-ict-ictconcepts-abayfx-fyp-WEBP-2.webp",
@@ -415,43 +458,89 @@
         ];
 
         const gallery = document.getElementById('gallery');
-        const fragment = document.createDocumentFragment();
-        
-        images.forEach(url => {
+        const retryButton = document.getElementById('retry-gallery');
+        let failedImages = 0;
+        let loadedImages = 0;
+
+        function createGalleryItem(url) {
             const link = document.createElement('a');
             link.href = url.trim();
             link.className = 'gallery-item block';
             
             const div = document.createElement('div');
             div.className = 'glass-card p-2 rounded-2xl overflow-hidden group relative h-full';
-            div.setAttribute('data-tilt', '');
-            div.setAttribute('data-tilt-max', '5');
             
+            if (!isTouchDevice()) {
+                div.setAttribute('data-tilt', '');
+                div.setAttribute('data-tilt-max', '5');
+            }
+            
+            // ✅ Error handling for images
             div.innerHTML = `
                 <div class="aspect-[4/5] overflow-hidden rounded-xl bg-gray-900 relative">
-                    <img src="${url.trim()}" loading="lazy" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700">
-                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <img src="${url.trim()}" 
+                         loading="lazy" 
+                         class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+                         onerror="this.parentElement.innerHTML='<div class=\'image-error\'><i class=\'fas fa-image\'></i><p>Image not available</p></div>'"
+                         onload="this.classList.add('loaded')">
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
                         <i class="fas fa-search-plus text-3xl text-neonGreen"></i>
                     </div>
                 </div>
             `;
             
             link.appendChild(div);
-            fragment.appendChild(link);
+            return link;
+        }
+
+        function loadGallery() {
+            gallery.innerHTML = '';
+            failedImages = 0;
+            loadedImages = 0;
+            
+            const fragment = document.createDocumentFragment();
+            
+            images.forEach(url => {
+                const item = createGalleryItem(url);
+                fragment.appendChild(item);
+            });
+            
+            gallery.appendChild(fragment);
+            
+            // Show retry button if images fail
+            setTimeout(() => {
+                if (failedImages > images.length / 2) {
+                    retryButton.classList.remove('hidden');
+                }
+            }, 3000);
+        }
+
+        // Initial load
+        loadGallery();
+
+        // Retry button functionality
+        retryButton.addEventListener('click', () => {
+            retryButton.classList.add('hidden');
+            retryButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Loading...';
+            loadGallery();
+            setTimeout(() => {
+                retryButton.innerHTML = '<i class="fas fa-redo mr-2"></i> Retry Loading Images';
+            }, 1000);
         });
-        gallery.appendChild(fragment);
 
         // Initialize Lightbox
-        new SimpleLightbox('.gallery-item', {
-            overlayOpacity: 0.9,
-            animationSpeed: 200,
-            showCounter: true,
-            captionSelector: 'img',
-            captionType: 'attr',
-            captionsData: 'alt',
-            captionPosition: 'bottom',
-            captionDelay: 250,
-        });
+        setTimeout(() => {
+            new SimpleLightbox('.gallery-item', {
+                overlayOpacity: 0.9,
+                animationSpeed: 200,
+                showCounter: true,
+                captionSelector: 'img',
+                captionType: 'attr',
+                captionsData: 'alt',
+                captionPosition: 'bottom',
+                captionDelay: 250,
+            });
+        }, 1000);
     </script>
 </body>
 </html>

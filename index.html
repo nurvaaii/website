@@ -5,199 +5,288 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Falcon FX | Institutional Authority</title>
     
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Animation Libraries -->
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        neonGreen: '#00ff9d',
+                        neonRed: '#ff3366',
+                        darkBg: '#050505'
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
         body { 
-            font-family: 'Montserrat', sans-serif; 
-            font-weight: 600; 
-            background-color: #000; 
+            background-color: #050505; 
             color: white; 
             overflow-x: hidden;
-            cursor: crosshair;
         }
 
-        h1, h2, h3, h4, h5, h6, p, a, span, button, div {
-            font-family: 'Montserrat', sans-serif;
+        /* Custom Cursor Light - Disabled on Touch Devices via JS */
+        #mouse-light {
+            position: fixed; width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(0,255,157,0.08) 0%, transparent 70%);
+            border-radius: 50%; pointer-events: none; z-index: 0; 
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s;
         }
 
-        .fas, .fab, .far, .fa {
-            font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
-            font-weight: 900; 
+        /* True Neon Effects */
+        .neon-green-text { 
+            color: #fff; 
+            text-shadow: 0 0 10px rgba(0, 255, 157, 0.5), 0 0 20px rgba(0, 255, 157, 0.3); 
         }
-        .fab { font-weight: 400; }
-
-        .parallax-bg {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://i.ibb.co.com/s9BC1xZW/d71aadf352b9c3ea85ac3dec0f170fd7.jpg');
-            background-size: cover;
-            background-position: center;
-            z-index: -1;
+        .neon-red-text { 
+            color: #fff; 
+            text-shadow: 0 0 10px rgba(255, 51, 102, 0.5), 0 0 20px rgba(255, 51, 102, 0.3); 
         }
-
-        .neon-green-text { color: #ffffff !important; text-shadow: 0 0 15px rgba(255, 255, 255, 0.3); }
-        .neon-red-text { color: #ffffff !important; text-shadow: 0 0 15px rgba(255, 255, 255, 0.3); }
         
+        /* Advanced Glassmorphism */
         .glass-card { 
-            background: rgba(255, 255, 255, 0.01); 
-            backdrop-filter: blur(25px); 
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            background: rgba(255, 255, 255, 0.03); 
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s ease;
         }
         .glass-card:hover { 
-            background: rgba(255, 255, 255, 0.05); 
-            border-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.07); 
+            border-color: rgba(0, 255, 157, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
         }
         
-        .hero-text { font-size: clamp(2.2rem, 8vw, 6rem); line-height: 1.2; font-weight: 900; }
+        .hero-text { font-size: clamp(2.5rem, 9vw, 7rem); line-height: 1.1; font-weight: 900; letter-spacing: -0.03em; }
 
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-thumb { background: #ffffff; border-radius: 10px; }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #00ff9d; }
 
-        #mouse-light {
-            position: fixed; width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
-            border-radius: 50%; pointer-events: none; z-index: 1; transform: translate(-50%, -50%);
-        }
-
-        .authority-bold { font-weight: 900 !important; letter-spacing: 0.4em !important; }
+        .authority-bold { font-weight: 900 !important; letter-spacing: 0.3em !important; }
+        
+        /* Mobile Menu Transition */
+        #mobile-menu { transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out; }
+        .menu-open { max-height: 400px; opacity: 1; }
+        .menu-close { max-height: 0; opacity: 0; overflow: hidden; }
     </style>
 </head>
-<body>
+<body class="antialiased selection:bg-neonGreen selection:text-black">
 
+    <!-- Mouse Light Effect -->
     <div id="mouse-light"></div>
-    <div class="parallax-bg"></div>
+    
+    <!-- Parallax Background -->
+    <div class="fixed inset-0 z-[-1] bg-[url('https://i.ibb.co.com/s9BC1xZW/d71aadf352b9c3ea85ac3dec0f170fd7.jpg')] bg-cover bg-center bg-no-repeat">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/90 to-[#050505]"></div>
+    </div>
 
-    <nav class="fixed top-6 left-1/2 -translate-x-1/2 w-[92%] z-50 bg-black/50 backdrop-blur-3xl border border-white/5 py-5 px-10 rounded-2xl flex justify-between items-center">
-        <div class="flex items-center gap-4">
-            <div class="w-10 h-10 bg-white rounded flex items-center justify-center p-1 shadow-xl">
-                <img src="https://i.ibb.co.com/LD3KNG97/5800d8e33c0a010006bb457cdfd8f73c.jpg" class="w-full h-full object-cover rounded">
+    <!-- Navigation -->
+    <nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] lg:w-[90%] z-50 glass-card py-4 px-6 rounded-2xl flex justify-between items-center border-white/10">
+        <div class="flex items-center gap-3">
+            <div class="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center p-0.5 border border-white/20">
+                <img src="https://i.ibb.co.com/LD3KNG97/5800d8e33c0a010006bb457cdfd8f73c.jpg" class="w-full h-full object-cover rounded" alt="Logo">
             </div>
-            <div class="flex flex-col">
-                <span class="text-xl font-extrabold uppercase tracking-tighter">
-                    <span class="neon-red-text">Falcon</span> <span class="neon-green-text">FX</span>
+            <div class="flex flex-col leading-none">
+                <span class="text-lg font-black uppercase tracking-tighter">
+                    <span class="neon-red-text">Falcon</span><span class="text-white">FX</span>
                 </span>
-                <span class="text-[8px] neon-red-text uppercase authority-bold">Institutional Authority</span>
+                <span class="text-[9px] text-gray-400 uppercase tracking-widest mt-1">Institutional</span>
             </div>
         </div>
         
-        <div class="hidden lg:flex gap-12 text-[10px] uppercase tracking-[0.3em] font-bold">
-            <a href="#home" class="hover:text-gray-300 transition text-white">Intro</a>
-            <a href="#about" class="hover:text-gray-300 transition text-white">Philosophy</a>
-            <a href="#setups" class="hover:text-gray-300 transition text-white">Archives</a>
-            <a href="#community" class="hover:text-gray-300 transition text-white">Network</a>
+        <!-- Desktop Menu -->
+        <div class="hidden lg:flex gap-8 text-[11px] uppercase tracking-[0.25em] font-bold text-gray-300">
+            <a href="#home" class="hover:text-neonGreen transition-colors">Intro</a>
+            <a href="#about" class="hover:text-neonGreen transition-colors">Philosophy</a>
+            <a href="#setups" class="hover:text-neonGreen transition-colors">Archives</a>
+            <a href="#community" class="hover:text-neonGreen transition-colors">Network</a>
         </div>
-        <a href="https://t.me/falconfxofficiall" class="bg-white text-black px-8 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest hover:scale-105 transition">Free Access</a>
+
+        <!-- CTA & Mobile Toggle -->
+        <div class="flex items-center gap-4">
+            <a href="https://t.me/falconfxofficiall" class="hidden sm:inline-flex bg-white text-black px-6 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-neonGreen hover:scale-105 transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+                Free Access
+            </a>
+            <!-- Mobile Hamburger -->
+            <button id="menu-toggle" class="lg:hidden text-white text-xl p-2">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
     </nav>
 
-    <section id="home" class="min-h-screen flex flex-col justify-center items-center px-6 pt-44 md:pt-20">
-        <div class="reveal text-center mt-10 md:mt-0">
-            <h1 class="hero-text mb-10">
-                <span class="neon-red-text">SNR || LSR || QMM</span> <br> 
-                <span class="neon-green-text text-[0.6em]">WITH ICT SMC AND PA</span>
+    <!-- Mobile Menu Dropdown -->
+    <div id="mobile-menu" class="menu-close fixed top-20 left-0 w-full bg-black/95 backdrop-blur-xl z-40 px-6 py-4 border-b border-white/10 lg:hidden">
+        <div class="flex flex-col gap-4 text-center text-sm uppercase tracking-widest font-bold text-gray-300">
+            <a href="#home" class="py-2 hover:text-neonGreen">Intro</a>
+            <a href="#about" class="py-2 hover:text-neonGreen">Philosophy</a>
+            <a href="#setups" class="py-2 hover:text-neonGreen">Archives</a>
+            <a href="#community" class="py-2 hover:text-neonGreen">Network</a>
+            <a href="https://t.me/falconfxofficiall" class="mt-4 bg-neonGreen text-black py-3 rounded-lg font-bold">Join Telegram</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex flex-col justify-center items-center px-4 pt-32 pb-20 relative">
+        <div class="reveal text-center max-w-6xl mx-auto z-10">
+            <h1 class="hero-text mb-8">
+                <span class="block neon-red-text">SNR || LSR || QMM</span> 
+                <span class="block text-[0.5em] md:text-[0.6em] neon-green-text mt-2">WITH ICT SMC AND PA</span>
             </h1>
             
-            <div class="text-white text-lg md:text-2xl max-w-5xl mx-auto mb-12 leading-relaxed font-semibold">
-                SNR DEFINES WHERE DECISIONS ARE MADE — NOT WHERE HOPE BEGINS.<br>
-                LSR EXPOSES LIQUIDITY — NOT RETAIL IMAGINATION.<br>
-                QMM REMAINS THE FOUNDATION, BECAUSE MANIPULATION IS NEVER RANDOM.<br>
-                MARKET STRUCTURE IS THE ONLY MAP THAT SURVIVES VOLATILITY.<br>
-                PRICE DOES NOT MOVE — IT IS ENGINEERED.<br>
-                HIGHS AND LOWS ARE BUILT TO BE USED.<br>
-                NO INDICATORS. NO PREDICTION.<br>
-                ONLY CONTEXT, TIMING, AND EXECUTION.<br>
-                PRECISION ISN’T A GOAL — IT’S THE STANDARD.
+            <div class="text-gray-300 text-sm md:text-xl max-w-4xl mx-auto mb-12 leading-relaxed font-medium space-y-2">
+                <p>SNR DEFINES WHERE DECISIONS ARE MADE — NOT WHERE HOPE BEGINS.</p>
+                <p>LSR EXPOSES LIQUIDITY — NOT RETAIL IMAGINATION.</p>
+                <p class="neon-green-text font-bold">MARKET STRUCTURE IS THE ONLY MAP THAT SURVIVES VOLATILITY.</p>
+                <p>NO INDICATORS. NO PREDICTION. ONLY CONTEXT, TIMING, AND EXECUTION.</p>
             </div>
 
-            <div class="flex justify-center gap-8 mb-14 text-2xl">
-                <a href="https://wa.me/917379884991" target="_blank" class="hover:scale-125 transition text-white hover:text-gray-300"><i class="fab fa-whatsapp"></i></a>
-                
-                <a href="https://t.me/falconfxofficiall" target="_blank" class="hover:scale-125 transition text-white hover:text-gray-300"><i class="fab fa-telegram-plane"></i></a>
-                
-                <a href="https://www.facebook.com/falconfx.ffx" target="_blank" class="hover:scale-125 transition text-white hover:text-gray-300"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/falconfx_ffx" target="_blank" class="hover:scale-125 transition text-white hover:text-gray-300"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.tiktok.com/@falconfx_ffx" target="_blank" class="hover:scale-125 transition text-white hover:text-gray-300"><i class="fab fa-tiktok"></i></a>
-                <a href="https://www.youtube.com/@falconfx-ffx.official" target="_blank" class="hover:scale-125 transition text-white hover:text-gray-300"><i class="fab fa-youtube"></i></a>
+            <div class="flex justify-center gap-6 mb-16 text-2xl">
+                <a href="https://wa.me/917379884991" target="_blank" class="hover:text-neonGreen hover:scale-110 transition-all duration-300"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://t.me/falconfxofficiall" target="_blank" class="hover:text-[#0088cc] hover:scale-110 transition-all duration-300"><i class="fab fa-telegram-plane"></i></a>
+                <a href="https://www.instagram.com/falconfx_ffx" target="_blank" class="hover:text-pink-500 hover:scale-110 transition-all duration-300"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@falconfx-ffx.official" target="_blank" class="hover:text-red-500 hover:scale-110 transition-all duration-300"><i class="fab fa-youtube"></i></a>
             </div>
 
-            <div class="flex gap-10 justify-center">
-                <button onclick="document.getElementById('setups').scrollIntoView()" class="bg-white text-black px-14 py-6 rounded-2xl font-black uppercase tracking-widest text-[11px] hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all">Execution Logs</button>
-                <a href="https://t.me/falconfxofficiall" class="glass-card px-14 py-6 rounded-2xl font-black uppercase tracking-widest text-[11px] border border-white/10 hover:border-white transition-all text-white">Pulse Access</a>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="document.getElementById('setups').scrollIntoView({behavior: 'smooth'})" class="bg-white text-black px-8 py-4 rounded-xl font-black uppercase tracking-widest text-xs hover:bg-neonGreen hover:shadow-[0_0_30px_rgba(0,255,157,0.4)] transition-all">
+                    Execution Logs
+                </button>
+                <a href="https://t.me/falconfxofficiall" class="glass-card px-8 py-4 rounded-xl font-black uppercase tracking-widest text-xs border-white/20 hover:border-neonGreen/50 hover:text-neonGreen transition-all text-center">
+                    Pulse Access
+                </a>
             </div>
         </div>
     </section>
 
-    <section id="about" class="py-40 px-6">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
-            <div class="reveal">
-                <h2 class="text-5xl font-extrabold mb-10 tracking-tighter uppercase neon-green-text">Our Core Focus: <br>SNR & Structure</h2>
-                <div class="space-y-6 text-white text-lg leading-relaxed font-semibold">
-                    <p>Everything starts and ends with price action. I use ICT and Smart Money Concepts (SMC) strictly as a supporting framework—not as the main system.</p>
-                    <p>These concepts help refine entries, understand liquidity behavior, and improve trade timing, but <span class="neon-green-text font-bold">SNR remains the foundation</span> of every trade.</p>
+    <!-- About Section -->
+    <section id="about" class="py-24 px-4 relative z-10">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div class="reveal order-2 md:order-1">
+                <h2 class="text-4xl md:text-5xl font-black mb-8 tracking-tight uppercase neon-green-text">Our Core Focus: <br>SNR & Structure</h2>
+                <div class="space-y-6 text-gray-300 text-lg leading-relaxed">
+                    <p>Everything starts and ends with <span class="text-white font-bold">price action</span>. I use ICT and Smart Money Concepts (SMC) strictly as a supporting framework.</p>
+                    <p>These concepts help refine entries and understand liquidity, but <span class="neon-green-text font-bold border-b border-neonGreen/50">SNR remains the foundation</span> of every trade.</p>
                     <p>No indicator dependency. No overcomplicated models. Just clean levels, structure, and disciplined execution.</p>
                 </div>
             </div>
-            <div class="reveal grid grid-cols-1 gap-6">
-                <div class="glass-card p-10 rounded-3xl">
-                    <h4 class="text-2xl font-bold mb-4 neon-green-text uppercase">The Objective</h4>
-                    <p class="text-lg text-white font-semibold">Identify high-probability zones, manage risk intelligently, and stay consistent in real market conditions.</p>
+            <div class="reveal grid grid-cols-1 gap-6 order-1 md:order-2">
+                <div class="glass-card p-8 rounded-3xl border-l-4 border-neonGreen">
+                    <h4 class="text-xl font-bold mb-3 neon-green-text uppercase">The Objective</h4>
+                    <p class="text-gray-300 font-medium">Identify high-probability zones, manage risk intelligently, and stay consistent in real market conditions.</p>
                 </div>
-                <div class="glass-card p-10 rounded-3xl">
-                    <h4 class="text-2xl font-bold mb-4 neon-red-text uppercase">The Vision</h4>
-                    <p class="text-lg text-white font-semibold">Built for traders who want clarity over complexity and structure over noise.</p>
+                <div class="glass-card p-8 rounded-3xl border-l-4 border-neonRed">
+                    <h4 class="text-xl font-bold mb-3 neon-red-text uppercase">The Vision</h4>
+                    <p class="text-gray-300 font-medium">Built for traders who want clarity over complexity and structure over noise.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="setups" class="py-40 bg-black/60 border-y border-white/5 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <div class="mb-24 reveal">
-                <h2 class="text-6xl font-black uppercase mb-4">
-                    <span class="neon-red-text">Sniper</span> <span class="neon-green-text">Trade</span>
+    <!-- Gallery Section -->
+    <section id="setups" class="py-24 bg-black/40 border-y border-white/5 backdrop-blur-sm relative z-10">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="mb-16 reveal">
+                <h2 class="text-5xl md:text-7xl font-black uppercase mb-4">
+                    <span class="neon-red-text">Sniper</span> <span class="text-white">Trade</span>
                 </h2>
-                <p class="neon-red-text uppercase tracking-[0.5em] text-[10px] authority-bold">Institutional Grade Executions Integrated</p>
+                <p class="neon-green-text uppercase tracking-[0.4em] text-[10px] authority-bold">Institutional Grade Executions</p>
             </div>
-            <div id="gallery" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 reveal text-left">
+            
+            <!-- Optimized Gallery Grid -->
+            <div id="gallery" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
+                <!-- Images will be injected here via JS -->
             </div>
         </div>
     </section>
 
-    <footer id="community" class="py-40 text-center px-6">
-        <div class="reveal">
-            <h2 class="text-3xl font-bold mb-16 uppercase tracking-[0.5em]">Global Connectivity</h2>
-            <div class="flex flex-wrap justify-center gap-16 text-4xl mb-40">
-                <a href="https://wa.me/917379884991" target="_blank" class="hover:scale-125 transition text-white hover:text-gray-300"><i class="fab fa-whatsapp"></i></a>
-                
-                <a href="https://t.me/falconfxofficiall" class="neon-green-text hover:scale-125 transition-all"><i class="fab fa-telegram-plane"></i></a>
-                
-                <a href="https://www.facebook.com/falconfx.ffx" class="text-white hover:text-gray-300 hover:scale-125 transition-all"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/falconfx_ffx" class="neon-red-text hover:scale-125 transition-all"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.tiktok.com/@falconfx_ffx" class="text-white hover:text-gray-300 transition-all"><i class="fab fa-tiktok"></i></a>
-                <a href="https://www.youtube.com/@falconfx-ffx.official" class="text-white hover:scale-125 transition-all"><i class="fab fa-youtube"></i></a>
+    <!-- Footer -->
+    <footer id="community" class="py-20 text-center px-4 relative z-10 bg-[#020202]">
+        <div class="reveal max-w-4xl mx-auto">
+            <h2 class="text-2xl font-bold mb-10 uppercase tracking-[0.3em] text-gray-400">Global Connectivity</h2>
+            <div class="flex flex-wrap justify-center gap-8 text-3xl mb-12">
+                <a href="https://wa.me/917379884991" target="_blank" class="text-gray-400 hover:text-[#25D366] hover:scale-110 transition-all"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://t.me/falconfxofficiall" target="_blank" class="text-gray-400 hover:text-[#0088cc] hover:scale-110 transition-all"><i class="fab fa-telegram-plane"></i></a>
+                <a href="https://www.instagram.com/falconfx_ffx" target="_blank" class="text-gray-400 hover:text-pink-500 hover:scale-110 transition-all"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@falconfx-ffx.official" target="_blank" class="text-gray-400 hover:text-red-500 hover:scale-110 transition-all"><i class="fab fa-youtube"></i></a>
             </div>
-            <div class="bg-white p-1 rounded w-10 mx-auto mb-6 shadow-xl">
-                <img src="https://i.ibb.co.com/LD3KNG97/5800d8e33c0a010006bb457cdfd8f73c.jpg" class="w-full h-full object-cover rounded">
+            
+            <div class="inline-flex items-center gap-3 mb-6 opacity-80 hover:opacity-100 transition-opacity">
+                <div class="w-8 h-8 bg-white/10 rounded p-0.5">
+                    <img src="https://i.ibb.co.com/LD3KNG97/5800d8e33c0a010006bb457cdfd8f73c.jpg" class="w-full h-full object-cover rounded" alt="Logo">
+                </div>
+                <span class="text-xs font-bold tracking-widest uppercase">Falcon FX</span>
             </div>
-            <p class="text-[12px] uppercase tracking-[1em] font-bold"><span class="neon-green-text">Falcon FX</span> &copy; 2026 / <span class="neon-red-text authority-bold">Institutional Authority</span></p>
+            
+            <p class="text-[10px] text-gray-600 uppercase tracking-[0.2em]">© 2026 Falcon FX / <span class="text-neonRed">Institutional Authority</span></p>
         </div>
     </footer>
 
     <script>
+        // 1. Mouse Light Logic (Disabled on Mobile for Performance)
         const mouseLight = document.getElementById('mouse-light');
-        document.addEventListener('mousemove', (e) => {
-            gsap.to(mouseLight, { x: e.clientX, y: e.clientY, duration: 1.2, ease: "power2.out" });
+        const isTouchDevice = () => (('ontouchstart' in window) || (navigator.maxTouchPoints > 0));
+        
+        if (!isTouchDevice()) {
+            document.addEventListener('mousemove', (e) => {
+                gsap.to(mouseLight, { x: e.clientX, y: e.clientY, duration: 0.6, ease: "power2.out" });
+            });
+        } else {
+            mouseLight.style.display = 'none'; // Hide on touch devices
+            document.body.style.cursor = 'default'; // Reset cursor
+        }
+
+        // 2. Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let isMenuOpen = false;
+
+        menuToggle.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            mobileMenu.classList.toggle('menu-open');
+            mobileMenu.classList.toggle('menu-close');
+            menuToggle.innerHTML = isMenuOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
 
-        ScrollReveal().reveal('.reveal', { distance: '80px', duration: 1500, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', interval: 150 });
+        // Close menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                isMenuOpen = false;
+                mobileMenu.classList.remove('menu-open');
+                mobileMenu.classList.add('menu-close');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
 
+        // 3. Scroll Reveal Config
+        ScrollReveal().reveal('.reveal', { 
+            distance: '50px', 
+            duration: 1200, 
+            easing: 'cubic-bezier(0.16, 1, 0.3, 1)', 
+            interval: 100,
+            mobile: false // Disable on mobile for better performance
+        });
+
+        // 4. Gallery Generation (Fixed URLs & Lazy Loading)
         const images = [
             "https://i.ibb.co.com/HL6tfkyw/alchemist-ict-ictconcepts-abayfx-fyp-WEBP-1.webp",
             "https://i.ibb.co.com/PzG2MyQ5/alchemist-ict-ictconcepts-abayfx-fyp-WEBP-2.webp",
@@ -239,13 +328,24 @@
         ];
 
         const gallery = document.getElementById('gallery');
+        
+        // Using DocumentFragment for better performance when adding many items
+        const fragment = document.createDocumentFragment();
+        
         images.forEach(url => {
-            gallery.innerHTML += `
-                <div class="glass-card p-3 rounded-[40px] overflow-hidden group">
-                    <img src="${url}" class="rounded-[30px] h-72 w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000">
+            const div = document.createElement('div');
+            div.className = 'glass-card p-2 rounded-2xl overflow-hidden group relative';
+            div.innerHTML = `
+                <div class="aspect-[4/5] overflow-hidden rounded-xl bg-gray-900">
+                    <img src="${url.trim()}" loading="lazy" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                    <span class="text-[10px] font-bold text-neonGreen uppercase tracking-wider">View Setup</span>
                 </div>
             `;
+            fragment.appendChild(div);
         });
+        gallery.appendChild(fragment);
     </script>
 </body>
 </html>
